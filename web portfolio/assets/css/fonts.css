@@ -1,11 +1,50 @@
-/*!
- * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- */
 
+/* 1. Definir la tipografía */
+@font-face {
+  font-family: 'AntaRegular';
+  src: url("../webfonts/anta-regular-webfont.woff2") format('woff2'),
+       url("../webfonts/anta-regular-webfont.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'AudiowideRegular';
+  src: url("../webfonts/audiowide-regular-webfont.woff2") format('woff2'),
+       url("../webfonts/audiowide-regular-webfont.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* 2. Aplicarla a tu clase */
+.txt_antaregular {
+  font-family: 'AntaRegular';
+}
 
+/* 2. Aplicarla a tu clase */
+.txt_audiowideregular {
+  font-family: 'AudiowideRegular';
+}
+
+.txt_main {
+  font-size: 16px;
+}
+
+.txt_main_title {
+  font-family: 'AudiowideRegular';
+  font-size: 170%;
+  font-weight: bold;
+  text-align: left;
+}
+
+.txt_second_title {
+  font-family: 'AntaRegular';
+  font-size: 100%;
+  font-weight: bold;
+  text-align: left;
+}
 
 
 
