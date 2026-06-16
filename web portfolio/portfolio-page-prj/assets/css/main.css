@@ -265,32 +265,6 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
-/* Wrapper */
-
-	#wrapper {
-		min-height: 100vh;
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-flex-direction: column;
-		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
-		flex-direction: column;
-		-moz-justify-content: space-between;
-		-webkit-justify-content: space-between;
-		-ms-justify-content: space-between;
-		justify-content: space-between;
-		-moz-align-items: center;
-		-webkit-align-items: center;
-		-ms-align-items: center;
-		align-items: center;
-		-moz-transition: -moz-filter 0.5s ease-in-out;
-		-webkit-transition: -webkit-filter 0.5s ease-in-out;
-		-ms-transition: -ms-filter 0.5s ease-in-out;
-		transition: filter 0.5s ease-in-out;
-	}
-
 		#wrapper:before {
 			content: '';
 			display: block;
@@ -303,13 +277,6 @@ input, select, textarea {
 			filter: blur(0.25em);
 		}
 
-		@media screen and (max-width: 736px) {
-
-			#wrapper {
-				min-height: 0;
-			}
-
-		}
 
 /* Scroll Zone */
 
