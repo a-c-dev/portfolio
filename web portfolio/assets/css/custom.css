@@ -104,3 +104,19 @@
 .image-container:hover .hover-text {
   opacity: 1; /* Text appears */
 }
+
+/* Contenedor de la sección (opcional, para dar margen) */
+.seccion-proyecto-externo {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #f4f4f4; 
+}
+
+/* Estilos del iframe */
+.iframe-proyecto {
+  width: 100%;             /* Ocupa todo el ancho de tu sección */
+  height: 600px;           /* Ajusta esta altura según lo grande que sea el otro proyecto */
+  border: none;            /* Elimina el borde gris feo que los iframes traen por defecto */
+  display: block;
+  overflow: auto;          /* Permite scroll dentro del proyecto si es más largo que la altura fija */
+}
