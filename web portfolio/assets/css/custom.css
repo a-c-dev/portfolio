@@ -13,3 +13,94 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+
+
+  /* Container holds both image and text */
+.image-container {
+  position: relative;
+  overflow: hidden; /* Hides image zoom outside borders 
+  /* border-radius: 8px; */
+}
+
+ Base image styling 
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+} 
+
+/* Texto oculto con estilo de párrafo normal */
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Color y Fuente */
+  color: #5df965;
+  font-family: antaregular; /* Hereda la tipografía exacta del resto de tu web */
+  font-size: 1rem;      /* Tamaño estándar (equivalente a un párrafo normal de 16px) */
+  font-weight: normal;  /* Cambiado de bold a normal para que no parezca un título */
+  
+  /* Alineación y Espaciado de párrafo */
+  text-align: justify;       /* Justifica el texto para bordes limpios, o 'center' si prefieres todo al centro */
+  text-justify: inter-word;  /* Mejora el espacio entre palabras si usas justify */
+  line-height: 1.6;          /* Interlineado estándar y cómodo para la lectura */
+  
+  /* Control de espacio dentro de la imagen */
+  width: 85%;           /* Deja márgenes limpios a los lados de la imagen */
+  max-height: 80%;      /* Evita que el texto se salga por arriba o por abajo */
+  overflow: hidden;     /* Corta el texto si por error metes un párrafo gigante */
+  
+  /* Comportamiento y Animación */
+  opacity: 0; 
+  transition: opacity 0.5s ease;
+  pointer-events: none; 
+  z-index: 2;
+}
+
+/* 1. DISEÑO PARA TABLETS (Pantallas medianas entre 769px y 1024px) */
+@media screen and (max-width: 1024px) {
+  .hover-text {
+    font-size: 0.9rem;        /* Letra un poco más pequeña que en PC */
+    line-height: 1.5;         /* Interlineado cómodo */
+    width: 88%;               /* Aprovecha mejor el espacio lateral */
+  }
+  
+  .hover-text .text-highlight {
+    font-size: 1rem;
+  }
+}
+
+/* 2. DISEÑO PARA MÓVILES (Pantallas pequeñas de 768px o menos) */
+@media screen and (max-width: 768px) {
+  .hover-text {
+    font-size: 0.8rem;        /* Letra más pequeña para smartphones */
+    line-height: 1.35;        /* Interlineado más compacto */
+    width: 92%;               /* Máximo espacio lateral disponible */
+    max-height: 95%;          /* Permite usar casi todo el alto de la foto */
+  }
+
+  .hover-text .text-highlight {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Hover Effects */
+.image-container:hover img {
+  transform: scale(1.7); /* Makes picture bigger */
+  position: relative;
+  /* 
+    grayscale(100%) -> Quita el color
+    brightness(30%)  -> Reduce el brillo al 30% (puedes bajarlo a 20% si lo quieres más oscuro)
+  */
+  filter: grayscale(100%) brightness(30%); 
+  opacity: 0.8; /* Ayuda a que el fondo negro del contenedor sea más visible */
+}
+
+.image-container:hover .hover-text {
+  opacity: 1; /* Text appears */
+}

@@ -1731,6 +1731,7 @@ input, select, textarea {
 
 	section, article {
 		margin-bottom: 3em;
+		
 	}
 
 		section > :last-child,
