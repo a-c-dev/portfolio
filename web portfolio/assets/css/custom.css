@@ -39,7 +39,7 @@
   transform: translate(-50%, -50%);
   
   /* Color y Fuente */
-  color: #5df965;
+  color: #84ccf3;
   font-family: antaregular; /* Hereda la tipografía exacta del resto de tu web */
   font-size: 1rem;      /* Tamaño estándar (equivalente a un párrafo normal de 16px) */
   font-weight: normal;  /* Cambiado de bold a normal para que no parezca un título */
@@ -112,11 +112,47 @@
   background-color: #f4f4f4; 
 }
 
+/* 1. El contenedor padre controla el área visible */
+.contenedor-iframe {
+    width: 100%;             /* Se adapta al ancho de tu pantalla */
+    height: 456px !important; 
+    overflow-x: scroll;      /* ¡CLAVE! Fuerza la aparición de la barra horizontal */
+    overflow-y: hidden;      /* Esconde la vertical si no la necesitas */
+    -webkit-overflow-scrolling: touch; /* Suaviza el movimiento en móviles */
+}
+
 /* Estilos del iframe */
 .iframe-proyecto {
-  width: 100%;             /* Ocupa todo el ancho de tu sección */
-  height: 450px;           /* Ajusta esta altura según lo grande que sea el otro proyecto */
+  min-width: 100%;            /* Ocupa como mínimo la pantalla */
+  width: max-content;
+              /*  width: 10000px; Ocupa todo el ancho de tu sección */
+  height: 100%;           /* Ajusta esta altura según lo grande que sea el otro proyecto */
   border: none;            /* Elimina el borde gris feo que los iframes traen por defecto */
   display: block;
-  overflow: auto;          /* Permite scroll dentro del proyecto si es más largo que la altura fija */
+  overflow: auto; 
+  overflow-x: scroll; 
+  overflow-y: hidden;         
+  }
+
+/* Esto obliga a los elementos hijos (las columnas) a alinearse en fila */
+.contenedor-columnas {
+    display: flex;
+    flex-direction: row;      /* Los alinea en horizontal */
+    justify-content: center;  /* Centra las dos columnas en la pantalla */
+    gap: 40px;                /* Añade una separación de 40px entre columnas */
+    width: 100%;
+}
+
+/* Opcional: Asegura que ambas columnas tengan el mismo ancho */
+.columna {
+    flex: 1;
+    max-width: 300px;         /* Limita el ancho para que no se estiren demasiado */
+    text-align: center;       /* Centra el texto y los iconos dentro de cada columna */
+}
+
+/* Opcional: Quita los puntos negros de la lista <ul> si te aparecen */
+.icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

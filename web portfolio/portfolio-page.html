@@ -51,7 +51,8 @@
 							<div class="txt_paragraph">
 								Aquí se muestran algunos de los espectáculos 
 								en los que he trabajado como técnico de sonido, iluminación, maquinaria, monntaje y proyección.
-								He tenido la oportunidad de colaborar con artistas y compañías locales e internacioanles, dentros de lo cuales destacan los Yellow Jackets, Ida Nielsen, María Shneider, Devon Lamaar y Bobby Whatson. <br>
+								He tenido la oportunidad de colaborar con artistas y compañías locales e internacioanles, dentros de lo cuales destacan los Yellow Jackets, 
+								Ida Nielsen, María Shneider, Devon Lamaar, Bobby Whatson, Café Quijano y Laura Gallego. <br>
 								He operado en calle, auditorios, teatros, salas de conciertos y terrazas con un amplio rango de público y artistas.
 								Principalmente conosco a las mesas de mexcla Yamaha DM3/QL5, Bheringer X32, Midas M32, Soundraft UI series.
 								En iluminación he trabajado con las mesas LT Hidra II y ChamSys.
@@ -59,8 +60,10 @@
 							</div>
 
 							<section class="seccion-proyecto-externo">
-								<!-- El iframe carga el index.html del otro proyecto de forma aislada -->
-								<iframe src="portfolio-page-prj/portfolio-show.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								<div class="contenedor-iframe">
+									<!-- El iframe carga el index.html del otro proyecto de forma aislada -->
+									<iframe id="show-frame" src="portfolio-page-prj/portfolio-show.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								</div>
 							</section>
 						</div>
 						</section>
@@ -72,29 +75,17 @@
 								<h2 class="txt_audiowideregular">Fotografía</h2>
 							</header>
 
-							<div class="txt_antaregular">Texto texto texto
+							<div class="txt_paragraph">
+								Aquí se muestran algunos de los proyectos de fotografía que realicé:
+								Fotos de eventos en directo, retratos, fotografía de producto y fotografía artística.
+								Proceso mis fotografías con Adobe Photoshop y Lightroom.
 							</div>
 
 							<section class="seccion-proyecto-externo">
+								<div class="contenedor-iframe">
 								<!-- El iframe carga el index.html del otro proyecto de forma aislada -->
-								<iframe src="portfolio-page-prj/portfolio-photo.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
-							</section>
-						</div>
-						</section>
-
-						<section id="sec_design" class="two">
-						<div class="container">
-
-							<header>
-								<h2 class="txt_audiowideregular">Diseño Gráfico</h2>
-							</header>
-
-							<div class="txt_antaregular">Texto texto texto
-							</div>
-
-							<section class="seccion-proyecto-externo">
-								<!-- El iframe carga el index.html del otro proyecto de forma aislada -->
-								<iframe src="portfolio-page-prj/portfolio-design.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								<iframe id="photo-frame" src="portfolio-page-prj/portfolio-photo.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								</div>
 							</section>
 						</div>
 						</section>
@@ -110,11 +101,32 @@
 							</div>
 
 							<section class="seccion-proyecto-externo">
-								<!-- El iframe carga el index.html del otro proyecto de forma aislada -->
-								<iframe src="portfolio-page-prj/portfolio-videomaking.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								<div class="contenedor-iframe">
+									<iframe id="videomaking-frame" src="portfolio-page-prj/portfolio-videomaking.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								</div>
 							</section>
 						</div>
 						</section>
+
+						<section id="sec_design" class="two">
+						<div class="container">
+
+							<header>
+								<h2 class="txt_audiowideregular">Diseño Gráfico</h2>
+							</header>
+
+							<div class="txt_antaregular">Texto texto texto
+							</div>
+
+							<section class="seccion-proyecto-externo">
+								<div class="contenedor-iframe">
+									<iframe id="design-frame" src="portfolio-page-prj/portfolio-design.html" class="iframe-proyecto" title="Otro Proyecto"></iframe>
+								</div>
+							</section>
+						</div>
+						</section>
+
+						
 					
 
 			</div>
@@ -138,6 +150,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<!-- 
+			<script>
+						autoAdjustIframeWidth('show-frame');
+						autoAdjustIframeWidth('photo-frame');
+						autoAdjustIframeWidth('videomaking-frame');
+						autoAdjustIframeWidth('design-frame');
+			</script>
+			Scripts -->
 
 	</body>
 </html>

@@ -25,7 +25,7 @@
 							<ul>
 								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Home</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon solid fa-user">Sobre mí</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="portfolio-page.html" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
 								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
 							</ul>
 						</nav>
@@ -61,31 +61,25 @@
 								<h2 class="txt_audiowideregular">Sobre mí</h2>
 							</header>
 
-							<a href="#" class="image featured"><img src="images/faders_skills.png" alt="" /></a>
-
 							<p class="txt_paragraph">Técnico de producción audiovisual con experiencia en sonido e iluminación 
 								para conciertos, teatro y realización en directo. 
 								Como ex-informático y cofundador de una empresa tecnológica,
 								aporto sólidas habilidades de organización y gestión de proyectos junto con una base en herramientas digitales e IA. 
 								Combino el conocimiento técnico con flujos de trabajo eficientes para llevar a cabo eventos en vivo, 
 								producciones de vídeo y proyectos creativos audiovisuales. 
-							</p>
+							</p><br>
 
-						</div>
-					</section>
+							<a href="#" class="image featured"><img src="images/faders_skills.png" alt="" /></a>
 
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
-
-							<header>
-								<h2 class="txt_audiowideregular">Portfolio</h2>
-							</header>
-
+						
+							<br>
 							<p class="txt_paragraph">Aquí dejo una selección de eventos producidos o realizados por mi persona 
 								como técnico de montaje, sonido, proyección, iluminación o 
 								maquinaria, en los escenarios almeriences de La Guajira, el Teatro Apolo, la Sala EMMA y 
-								el Auditorio Maestro Padilla. Algunas de las fotografías las disparé yo mismo.</p>
+								el Auditorio Maestro Padilla. Algunas de las fotografías las disparé yo mismo. A seguir se podrá acceder 
+								a mi portfolio completo para poder ver más proyectos y trabajos en espectáculos, fotografía,
+								diseño gráfico y videomaking.
+							</p><br>
 
 							<div class="row">
 								<div class="col-4 col-12-mobile">
@@ -184,53 +178,74 @@
 								</div>
 							</div>
 
-							<footer>
-								<a href= "portfolio-page.html" class="button scrolly txt_antaregular">Ver más</a>
-							</footer>
-							
 						</div>
+
+						<footer>
+								<a href= "portfolio-page.html" class="button scrolly txt_antaregular">Ver portfolio</a>
+						</footer>
+
 					</section>
 
-
 				<!-- Contact -->
-					<section id="contact" class="four">
+					<section id="contact" class="two">
 						<div class="container">
 
 							<header>
 								<h2 class="txt_audiowideregular">Contactos</h2>
 							</header>
 
-						<p class="txt_antaregular">No dudes en contactar conmigo.</p>
-						<ul class="icons">
-							<li><a href="mailto:catto.alex.es@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							<P>catto.alex.es@gmail.com</P>
-						</ul>
+							<p class="txt_paragraph">No dudes en contactar conmigo. Puedes mandarme un correo electronico a 
+								<a href="mailto:catto.alex.es@gmail.com" target="_blank">catto.alex.es@gmail.com</a>
+								 o usar directamente el formulario de abajo. También puedes contactar conmigo a través 
+								 de mi cuenta instagram  
+								<a href="https://www.instagram.com/audiovisu.alex/" target="_blank">@audiovisu.alex</a>
+							</p><br>
 
-						<p class="txt_antaregular">No te olvides seguirme en redes sociales.</p>
-						<ul class="icons">
-							<li><a href="https://www.instagram.com/audiovisualex.lumen/" class="icon fab fa-instagram"><span class="label">Instagram</span><img style="height:3ch" src="images/icono_insta.png" alt="Instagram"></a></li>
-							<P>@audiovisualex.lumen</P>
-						</ul>
-					
-						<!--<form method="post" action="#">
+						<form method="post" action="https://formspree.io/f/xlgkybwd">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Nombre" required minlength="3"/></div>
+									<div class="col-6 col-12-mobile"><input type="email" name="email" placeholder="Email" required/></div>
 									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
+										<textarea name="message" placeholder="Mensaje" required minlength="20"></textarea>
 									</div>
 									<div class="col-12">
-										<input type="submit" value="Send Message" />
+										<input type="submit" value="Envia mensaje" />
 									</div>
 								</div>
 							</form>
-						-->
+						
 						</div>
 					</section>
 			</div>
 
 		<!-- Footer -->
 			<div id="footer">
+
+				<div class="contenedor-columnas">
+					<div class="columna">
+						<ul class="icons">
+							<li>
+								<a href="mailto:catto.alex.es@gmail.com" class="icon solid fa-envelope" target="_blank">
+									<span class="label">Email</span>
+								</a>
+								<span class="texto-contacto">catto.alex.es@gmail.com</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="columna">
+						<ul class="icons">
+							<li>
+								<a href="https://www.instagram.com/audiovisu.alex/" class="icon brands fa-instagram" target="_blank">
+                					<span class="label">Instagram</span>
+            					</a>
+								<span class="texto-contacto">@audiovisu.alex</span>
+							</li>
+						</ul>
+					</div> 
+
+				</div>
+					
 
 				<!-- Copyright -->
 					<ul class="copyright">
