@@ -1,3 +1,38 @@
+/* Paleta: azul marino (ya en uso en header/footer/botones) para títulos,
+   con un acento ámbar puntual (subrayado de título de sección, hover de
+   las flechas del carrusel) en vez de los grises apagados del template. */
+header h2.txt_audiowideregular {
+  color: #014061;
+  display: inline-block;
+  border-bottom: 3px solid #ef9f27;
+  padding-bottom: 0.3em;
+}
+
+button,
+.button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  border: 2px solid #ef9f27 !important;
+}
+
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #012e46 !important;
+  color: #ef9f27 !important;
+}
+
+#footer .icons a:hover {
+  color: #ef9f27;
+}
+
+#nav ul li a.active {
+  color: #ef9f27 !important;
+}
+
 .full_bg {
     position: fixed;
     width: 100%;
@@ -130,7 +165,7 @@
 
 .gallery-prev:hover,
 .gallery-next:hover {
-  color: #84ccf3 !important;
+  color: #ef9f27 !important;
 }
 
 .gallery-prev {
@@ -387,4 +422,54 @@
     margin-left: 0 !important;
   }
 
+}
+
+/* Formulario de contacto: se veía muy grande porque el textarea tenía
+   14em de alto minimo y ocupaba todo el ancho del contenedor (hasta
+   1400px). Se angosta, centra y reduce el alto del mensaje. */
+#contact form {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 0.85em;
+}
+
+#contact form textarea {
+  min-height: 8em;
+}
+
+/* Deja claro que las fotos/videos del carrusel se pueden abrir: un
+   ícono (lupa o play) que aparece al pasar el mouse sobre cada
+   miniatura. */
+.gallery-grid .image-container::after {
+  content: "\f00e";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#sec_videomaking .image-container::after {
+  content: "\f04b";
+}
+
+.gallery-grid .image-container:hover::after {
+  opacity: 1;
+}
+
+.item header {
+  background: #014061 !important;
+  border-bottom: 3px solid #ef9f27;
+}
+
+.item header h3 {
+  color: #fff;
 }
