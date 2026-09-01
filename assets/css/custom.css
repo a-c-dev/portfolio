@@ -110,7 +110,6 @@
    con miniaturas recortadas a un mismo tamaño. */
 .gallery-carousel {
   position: relative;
-  padding: 0 2.25em;
 }
 
 .gallery-prev,
@@ -135,11 +134,16 @@
 }
 
 .gallery-prev {
-  left: 0;
+  left: -2.5em;
 }
 
 .gallery-next {
-  right: 0;
+  right: -2.5em;
+}
+
+@media screen and (max-width: 1300px) {
+  .gallery-prev { left: 0.25em; }
+  .gallery-next { right: 0.25em; }
 }
 
 .gallery-scroll {
@@ -327,6 +331,7 @@
     display: inline-block !important;
     position: static !important;
     width: auto !important;
+    color: currentColor !important;
     margin-right: 0.4em;
   }
 

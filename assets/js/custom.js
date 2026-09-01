@@ -90,11 +90,14 @@
 		var track = scroller.querySelector('.row');
 		if (!track) return;
 
-		// Duplica la fila una vez: al llegar al final del original, el salto
-		// a 0 cae exactamente donde empieza la copia, sin corte visible.
+		// Duplica los ítems dentro de la MISMA fila (en vez de clonar la fila
+		// entera y ponerla al lado): así el espacio entre la última foto
+		// original y la primera copiada usa el mismo gutter que el resto,
+		// sin el margen negativo propio de cada fila comiéndose el hueco.
 		var singleSetWidth = track.scrollWidth;
-		var clone = track.cloneNode(true);
-		scroller.appendChild(clone);
+		Array.prototype.slice.call(track.children).forEach(function (item) {
+			track.appendChild(item.cloneNode(true));
+		});
 
 		var paused = false;
 		var dragging = false;
