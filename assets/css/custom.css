@@ -105,34 +105,173 @@
   opacity: 1; /* Text appears */
 }
 
-/* Contenedor de la sección (opcional, para dar margen) */
-.seccion-proyecto-externo {
-  width: 100%;
-  padding: 20px 0;
-  background-color: #f4f4f4; 
+/* Galerías de portfolio-page.html: carrusel horizontal que se desliza solo
+   y que el usuario puede arrastrar o scrollear en cualquier momento,
+   con miniaturas recortadas a un mismo tamaño. */
+.gallery-carousel {
+  position: relative;
+  padding: 0 2.25em;
 }
 
-/* 1. El contenedor padre controla el área visible */
-.contenedor-iframe {
-    width: 100%;             /* Se adapta al ancho de tu pantalla */
-    height: 456px !important; 
-    overflow-x: scroll;      /* ¡CLAVE! Fuerza la aparición de la barra horizontal */
-    overflow-y: hidden;      /* Esconde la vertical si no la necesitas */
-    -webkit-overflow-scrolling: touch; /* Suaviza el movimiento en móviles */
+.gallery-prev,
+.gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: transparent;
+  border: 0;
+  color: #014061 !important;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-/* Estilos del iframe */
-.iframe-proyecto {
-  min-width: 100%;            /* Ocupa como mínimo la pantalla */
-  width: max-content;
-              /*  width: 10000px; Ocupa todo el ancho de tu sección */
-  height: 100%;           /* Ajusta esta altura según lo grande que sea el otro proyecto */
-  border: none;            /* Elimina el borde gris feo que los iframes traen por defecto */
-  display: block;
-  overflow: auto; 
-  overflow-x: scroll; 
-  overflow-y: hidden;         
+.gallery-prev:hover,
+.gallery-next:hover {
+  color: #84ccf3 !important;
+}
+
+.gallery-prev {
+  left: 0;
+}
+
+.gallery-next {
+  right: 0;
+}
+
+.gallery-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  margin-bottom: 2em;
+  scrollbar-width: none;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-scroll.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.gallery-grid.row {
+  margin-bottom: 0;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+.gallery-grid .gallery-item {
+  flex: 0 0 auto;
+  width: 200px;
+}
+
+@media screen and (max-width: 736px) {
+  .gallery-grid .gallery-item {
+    width: 150px;
   }
+}
+
+.gallery-grid .image-container {
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-grid .image-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-grid .item header {
+  padding: 0.5em 0;
+  font-size: 0.65em;
+}
+
+/* Lightbox nativo (galerías de Espectáculos/Fotografía/Diseño) */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(21, 12, 7, 0.92);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  display: block;
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  color: #fff;
+  font-family: antaregular;
+  font-size: 1rem;
+  margin-top: 0.75em;
+  text-align: center;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+}
+
+.lightbox-close {
+  top: -2.5rem;
+  right: -0.5rem;
+}
+
+.lightbox-prev {
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 768px) {
+  .lightbox-prev { left: 0.25rem; }
+  .lightbox-next { right: 0.25rem; }
+  .lightbox-close { top: 0.5rem; right: 0.5rem; }
+}
 
 /* Esto obliga a los elementos hijos (las columnas) a alinearse en fila */
 .contenedor-columnas {
@@ -155,4 +294,92 @@
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+/* Encabezado horizontal fijo arriba en vez de la barra lateral vertical
+   (solo escritorio — el menú hamburguesa mobile de main.css no se toca).
+   !important en las propiedades estructurales porque las media queries de
+   ancho "wide" de main.css (961-1880px) están más abajo en el archivo y
+   ganarían el empate de especificidad si no se fuerza acá. */
+@media screen and (min-width: 961px) {
+
+  #header {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px !important;
+    width: 100% !important;
+    overflow-y: visible !important;
+    padding: 0 2em;
+    z-index: 100 !important;
+    background: #014061 !important;
+  }
+
+  /* Los íconos del nav quedaban mal alineados con el texto en la barra
+     horizontal (estaban pensados para la barra lateral vieja) — se sacan
+     todos salvo el de "Home", que se deja en flujo normal (no absoluto)
+     para que nunca se superponga con el texto. */
+  #nav ul li a span.icon:before {
+    display: none;
+  }
+
+  #top-link .icon:before {
+    display: inline-block !important;
+    position: static !important;
+    width: auto !important;
+    margin-right: 0.4em;
+  }
+
+  #header .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 0 !important;
+  }
+
+  #logo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 !important;
+    padding-left: 60px;
+    min-height: 48px;
+  }
+
+  #logo .image {
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  #logo h1 {
+    font-size: 0.9em !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+
+  #logo p {
+    font-size: 0.55em !important;
+    line-height: 1.2 !important;
+    margin: 0.2em 0 0 0 !important;
+  }
+
+  #nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #main {
+    margin-left: 0 !important;
+    margin-top: 80px !important;
+  }
+
+  #footer {
+    margin-left: 0 !important;
+  }
+
 }
