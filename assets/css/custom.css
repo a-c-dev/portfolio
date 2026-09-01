@@ -352,6 +352,7 @@ input[type="reset"]:hover {
     padding: 0 2em;
     z-index: 100 !important;
     background: #014061 !important;
+    text-align: left !important;
   }
 
   /* Los íconos del nav quedaban mal alineados con el texto en la barra
@@ -379,20 +380,11 @@ input[type="reset"]:hover {
   }
 
   #logo {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 !important;
-    padding-left: 60px;
     min-height: 48px;
-  }
-
-  #logo .image {
-    position: absolute !important;
-    left: 0 !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
   }
 
   #logo h1 {
@@ -472,4 +464,27 @@ input[type="reset"]:hover {
 
 .item header h3 {
   color: #fff;
+}
+
+.footer-logo {
+  display: block;
+  width: 110px;
+  height: auto;
+  margin: 0 auto 1.5em;
+}
+
+/* ul.icons a viene con 2em x 2em fijo (pensado solo para el ícono solo);
+   en el footer ahora el texto de contacto vive adentro del mismo <a>,
+   así que necesita crecer y alinear ícono + texto en fila. */
+#footer .icons a {
+  display: inline-flex !important;
+  align-items: center;
+  width: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+  gap: 0.5em;
+}
+
+#footer .icons .texto-contacto {
+  font-size: 0.8em;
 }
