@@ -54,8 +54,18 @@ input[type="reset"]:hover {
   /* Container holds both image and text */
 .image-container {
   position: relative;
-  overflow: hidden; /* Hides image zoom outside borders 
+  overflow: hidden; /* Hides image zoom outside borders
   /* border-radius: 8px; */
+}
+
+/* Las imágenes ahora llevan width/height en el HTML (evita salto de layout
+   mientras cargan) — sin este height:auto, cualquier <img> dentro de
+   .image (plantilla, solo fuerza width:100%) usaría el atributo height
+   literal en vez de escalar según el ancho real, deformando la imagen.
+   Las galerías con .gallery-grid no lo necesitan: su regla más específica
+   (position:absolute + height:100%) ya gana por especificidad. */
+.image img {
+  height: auto;
 }
 
  Base image styling 

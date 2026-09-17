@@ -4,7 +4,7 @@
   <!-- 1. PÁGINA PRINCIPAL (HOME) -->
   <url>
     <loc>https://alexcatto.com/</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- 2. PÁGINA DE PORTFOLIO -->
   <url>
     <loc>https://alexcatto.com/portfolio-page.html</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
