@@ -508,3 +508,45 @@ input[type="reset"]:hover {
 #footer .icons .texto-contacto {
   font-size: 0.8em;
 }
+
+/* FAQ: acordeón nativo <details>/<summary>, sin JS nuevo. */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(1, 64, 97, 0.15);
+  padding: 1em 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #014061;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5em;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #ef9f27;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faq-item p {
+  margin: 0.75em 0 0;
+}
