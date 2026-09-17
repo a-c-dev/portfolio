@@ -328,6 +328,16 @@ input[type="reset"]:hover {
     text-align: center;       /* Centra el texto y los iconos dentro de cada columna */
 }
 
+/* En mobile, tres columnas en fila no entran (el email se corta contra el
+   borde) — se apilan verticalmente. */
+@media screen and (max-width: 480px) {
+  .contenedor-columnas {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+}
+
 /* Opcional: Quita los puntos negros de la lista <ul> si te aparecen */
 .icons {
     list-style: none;
