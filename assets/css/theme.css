@@ -285,16 +285,14 @@ form textarea:focus {
   .image-container:hover img { transform: none; }
 }
 
-/* Logo del pie: el texto del logotipo es gris oscuro, así que va sobre una
-   placa clara para que se lea en el fondo oscuro. */
+/* Logo del pie: versión para fondo oscuro, sin placa. */
 #footer .footer-logo {
-  width: 220px;
+  width: 240px;
   max-width: 70%;
   height: auto;
-  background: #ecf1f1;
-  border-radius: var(--radius);
-  padding: .8rem 1.2rem;
   margin-bottom: 2em;
+  /* El PNG trae fondo casi negro opaco: "lighten" lo funde con el del pie. */
+  mix-blend-mode: lighten;
 }
 
 /* ---------- Faders (servicios, estilo Yamaha QL) ---------- */
@@ -389,3 +387,13 @@ form textarea:focus {
 /* Botón "Contacta conmigo" al final de cada sección */
 section footer { margin-top: 2.5rem; }
 section footer .button { font-family: inherit; }
+
+/* ---------- Menú móvil: el toggle ahora es un <button> ---------- */
+#headerToggle .toggle { background: transparent; padding: 0; cursor: pointer; }
+body #nav a:focus-visible,
+#headerToggle .toggle:focus-visible {
+  outline: 3px solid var(--amber) !important;
+  outline-offset: 2px;
+}
+
+#footer .copyright { margin-top: 1.5em; }

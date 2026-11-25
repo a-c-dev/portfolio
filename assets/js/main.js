@@ -1,123 +1,110 @@
-/*
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+// Navegación y menú móvil (JavaScript nativo, sin jQuery).
+(function () {
 
-(function($) {
+	var body = document.body;
+	var header = document.getElementById('header');
+	var navLinks = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
 
-	var	$window = $(window),
-		$body = $('body'),
-		$nav = $('#nav');
+	// Quita is-preload tras la carga (evita animaciones durante el primer pintado).
+	window.addEventListener('load', function () {
+		setTimeout(function () { body.classList.remove('is-preload'); }, 100);
+	});
 
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '961px',  '1880px' ],
-			normal:    [ '961px',  '1620px' ],
-			narrow:    [ '961px',  '1320px' ],
-			narrower:  [ '737px',  '960px'  ],
-			mobile:    [ null,     '736px'  ]
+	// --- Menú móvil (panel lateral) ---------------------------------------
+	var toggle = document.createElement('div');
+	toggle.id = 'headerToggle';
+	toggle.innerHTML = '<button type="button" class="toggle" aria-label="Abrir menú" aria-controls="header" aria-expanded="false"></button>';
+	body.appendChild(toggle);
+	var toggleButton = toggle.firstChild;
+
+	function setMenu(open) {
+		body.classList.toggle('header-visible', open);
+		toggleButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+		toggleButton.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+		if (!open && header) header.scrollTop = 0;
+	}
+
+	toggleButton.addEventListener('click', function (event) {
+		event.stopPropagation();
+		setMenu(!body.classList.contains('header-visible'));
+	});
+
+	// Clic fuera del panel, tecla Escape o deslizar hacia la izquierda lo cierran.
+	document.addEventListener('click', function (event) {
+		if (body.classList.contains('header-visible') && !header.contains(event.target)) {
+			event.preventDefault();
+			setMenu(false);
+		}
+	}, true);
+
+	document.addEventListener('keydown', function (event) {
+		if (event.key === 'Escape') setMenu(false);
+	});
+
+	var touchX = null;
+	header.addEventListener('touchstart', function (event) { touchX = event.touches[0].clientX; }, { passive: true });
+	header.addEventListener('touchmove', function (event) {
+		if (touchX !== null && touchX - event.touches[0].clientX > 60) {
+			touchX = null;
+			setMenu(false);
+		}
+	}, { passive: true });
+
+	// --- Enlaces del menú: activo + scroll suave --------------------------
+	var lockedLink = null;
+	var lockTimer = null;
+
+	function setActive(link) {
+		navLinks.forEach(function (a) { a.classList.toggle('active', a === link); });
+	}
+
+	function sectionFor(link) {
+		var href = link.getAttribute('href');
+		if (!href || href.charAt(0) !== '#' || href.length < 2) return null;
+		return document.getElementById(href.slice(1));
+	}
+
+	navLinks.forEach(function (link) {
+		link.addEventListener('click', function (event) {
+			setMenu(false);
+			var section = sectionFor(link);
+			if (!section) return; // enlace a otra página
+			event.preventDefault();
+			// Bloquea el enlace para que el observador no active otros mientras se desplaza.
+			lockedLink = link;
+			clearTimeout(lockTimer);
+			// Se libera cuando termina el desplazamiento (o, como respaldo, a los 4 s).
+			lockTimer = setTimeout(function () { lockedLink = null; }, 4000);
+			setActive(link);
+			section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		});
+	});
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+	var scrollEndTimer = null;
+	window.addEventListener('scroll', function () {
+		if (!lockedLink) return;
+		clearTimeout(scrollEndTimer);
+		scrollEndTimer = setTimeout(function () { lockedLink = null; }, 200);
+	}, { passive: true });
 
-	// Nav.
-		var $nav_a = $nav.find('a');
-
-		$nav_a
-			.addClass('scrolly')
-			.on('click', function(e) {
-
-				var $this = $(this);
-
-				// External link? Bail.
-					if ($this.attr('href').charAt(0) != '#')
-						return;
-
-				// Prevent default.
-					e.preventDefault();
-
-				// Deactivate all links.
-					$nav_a.removeClass('active');
-
-				// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-					$this
-						.addClass('active')
-						.addClass('active-locked');
-
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					id = $this.attr('href'),
-					$section = $(id);
-
-				// No section for this link? Bail.
-					if ($section.length < 1)
-						return;
-
-				// Scrollex.
-					$section.scrollex({
-						mode: 'middle',
-						top: '-10vh',
-						bottom: '-10vh',
-						initialize: function() {
-
-							// Deactivate section.
-								$section.addClass('inactive');
-
-						},
-						enter: function() {
-
-							// Activate section.
-								$section.removeClass('inactive');
-
-							// No locked links? Deactivate all links and activate this section's one.
-								if ($nav_a.filter('.active-locked').length == 0) {
-
-									$nav_a.removeClass('active');
-									$this.addClass('active');
-
-								}
-
-							// Otherwise, if this section's link is the one that's locked, unlock it.
-								else if ($this.hasClass('active-locked'))
-									$this.removeClass('active-locked');
-
-						}
-					});
-
+	if ('IntersectionObserver' in window) {
+		var observer = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (!entry.isIntersecting) return;
+				var link = navLinks.filter(function (a) { return sectionFor(a) === entry.target; })[0];
+				if (!link) return;
+				if (!lockedLink) {
+					setActive(link);
+				} else if (lockedLink === link) {
+					lockedLink = null;
+				}
 			});
+		}, { rootMargin: '-45% 0px -45% 0px' });
 
-	// Scrolly.
-		$('.scrolly').scrolly();
+		navLinks.forEach(function (a) {
+			var section = sectionFor(a);
+			if (section) observer.observe(section);
+		});
+	}
 
-	// Header (narrower + mobile).
-
-		// Toggle.
-			$(
-				'<div id="headerToggle">' +
-					'<a href="#header" class="toggle"></a>' +
-				'</div>'
-			)
-				.appendTo($body);
-
-		// Header.
-			$('#header')
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left',
-					target: $body,
-					visibleClass: 'header-visible'
-				});
-
-})(jQuery);
+})();
