@@ -1100,3 +1100,35 @@ body #nav .has-sub > a > span::after {
 @media screen and (max-width: 480px) {
   .service-actions .button { font-size: .74rem; letter-spacing: .04em; padding: 1em 1.1em; width: 100%; text-align: center; white-space: nowrap; }
 }
+
+/* =====================================================================
+   Páginas de servicio: portada con foto y degradado, como en la home
+   ===================================================================== */
+#main > section.service-intro.has-photo {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .45) 55%, rgba(0, 0, 0, .15) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, .92) 100%),
+    var(--hero-image);
+  background-size: cover;
+  background-position: var(--hero-pos, center);
+  min-height: min(calc(100svh - 80px), 620px);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(4rem, 12vh, 8rem) 0 3.5rem;
+}
+.service-intro.has-photo > .container { width: 100%; }
+.service-intro.has-photo .page-lead { color: #e4e4e4; text-shadow: 0 1px 12px rgba(0, 0, 0, .6); }
+.service-intro.has-photo .breadcrumb,
+.service-intro.has-photo .breadcrumb a { color: #d6d6d6; }
+.service-intro.has-photo h1 { text-shadow: 0 2px 18px rgba(0, 0, 0, .55); }
+@media screen and (max-width: 960px) {
+  #main > section.service-intro.has-photo { min-height: 440px; padding-top: 5.5rem; }
+}
+@media screen and (max-width: 960px) {
+  #main > section.service-intro.has-photo {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .46) 40%, rgba(0, 0, 0, .92) 100%),
+      var(--hero-image);
+  }
+}
