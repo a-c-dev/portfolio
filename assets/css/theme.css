@@ -774,3 +774,68 @@ header h2.txt_audiowideregular::after { margin-left: 0; }
   .mosaic-text { margin-bottom: 1.75rem; }
   .mosaic-text footer { margin-top: 1.25rem; }
 }
+
+/* =====================================================================
+   Divisor naranja + llamada a la acción entre secciones del portfolio
+   ===================================================================== */
+.section-cta { background: var(--bg); padding: 2.75rem 0; }
+.section-cta > .container {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+.section-cta .cta-line {
+  flex: 1 1 0;
+  min-width: 1.5rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(239, 159, 39, 0), var(--amber));
+  box-shadow: 0 0 14px rgba(239, 159, 39, .45);
+}
+.section-cta .cta-line:last-child { background: linear-gradient(270deg, rgba(239, 159, 39, 0), var(--amber)); }
+.section-cta .cta-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.section-cta .cta-pulse { width: 80px; height: 24px; flex: none; }
+.section-cta .cta-pulse path {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(239, 159, 39, .7));
+}
+.section-cta .cta-text {
+  margin: 0;
+  font-family: 'AudiowideRegular', system-ui, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: clamp(.85rem, 1.5vw, 1.1rem);
+  color: var(--text);
+}
+
+@media screen and (max-width: 860px) {
+  .section-cta { padding: 2.25rem 0; }
+  .section-cta > .container { flex-direction: column; gap: 1.5rem; }
+  .section-cta .cta-line { width: 100%; flex: none; }
+  .section-cta .cta-line:first-child { background: linear-gradient(90deg, rgba(239, 159, 39, 0), var(--amber), rgba(239, 159, 39, 0)); }
+  .section-cta .cta-line:last-child { display: none; }
+  .section-cta .cta-pulse { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .section-cta .cta-pulse path { stroke-dasharray: 160; stroke-dashoffset: 160; animation: cta-pulse 2.4s ease-out .2s forwards; }
+}
+@keyframes cta-pulse { to { stroke-dashoffset: 0; } }
+
+/* Centro en columna: pulso, texto y botón; así las líneas laterales respiran */
+.section-cta .cta-inner { flex: 0 1 auto; flex-direction: column; flex-wrap: nowrap; gap: 1rem; max-width: 100%; }
+.section-cta .cta-text { font-size: clamp(.85rem, 1.4vw, 1.05rem); }
+.section-cta .cta-line { min-width: 3rem; }
+@media screen and (max-width: 860px) {
+  .section-cta .cta-pulse { display: block; }
+}
