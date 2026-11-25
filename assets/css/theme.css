@@ -4,13 +4,13 @@
    el cuerpo (sin peticiones externas) y Audiowide solo para títulos. */
 
 :root {
-  --bg: #0b1620;
-  --bg-alt: #0e1c29;
-  --surface: #122433;
-  --surface-2: #17304a;
-  --line: #25405a;
-  --text: #e8eef3;
-  --muted: #9fb3c2;
+  --bg: #0a0a0a;
+  --bg-alt: #111111;
+  --surface: #181818;
+  --surface-2: #202020;
+  --line: #2c2c2c;
+  --text: #f2f2f2;
+  --muted: #b0b0b0;
   --amber: #ef9f27;
   --amber-hi: #ffc15e;
   --navy: #014061;
@@ -38,7 +38,7 @@ strong, b { color: var(--text); font-weight: 700; }
 
 .skip-link {
   position: fixed; left: 1rem; top: -4rem; z-index: 20000;
-  background: var(--amber); color: #0b1620; padding: .7em 1.1em;
+  background: var(--amber); color: #0a0a0a; padding: .7em 1.1em;
   border-radius: 8px; font-weight: 700; text-decoration: none; border: 0;
 }
 .skip-link:focus { top: 1rem; }
@@ -90,7 +90,7 @@ body input[type="button"],
 body button.button,
 body .button {
   background: var(--amber) !important;
-  color: #0b1620 !important;
+  color: #0a0a0a !important;
   border: 2px solid var(--amber) !important;
   border-radius: 999px;
   font-weight: 700;
@@ -108,7 +108,7 @@ body input[type="button"]:hover,
 body .button:hover {
   background: var(--amber-hi) !important;
   border-color: var(--amber-hi) !important;
-  color: #0b1620 !important;
+  color: #0a0a0a !important;
   transform: translateY(-2px);
 }
 body .button.outline {
@@ -124,7 +124,7 @@ body .button.outline:hover {
 
 /* ---------- Cabecera ---------- */
 body #header {
-  background: rgba(11, 22, 32, .92) !important;
+  background: rgba(0, 0, 0, .92) !important;
   box-shadow: none;
   border-bottom: 1px solid rgba(255, 255, 255, .08);
   -webkit-backdrop-filter: blur(12px);
@@ -148,7 +148,7 @@ body #nav ul li a.active span:before { color: var(--amber); }
 
 @media screen and (min-width: 961px) {
   body.has-hero:not(.scrolled) #header {
-    background: linear-gradient(rgba(11, 22, 32, .7), rgba(11, 22, 32, 0)) !important;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, 0)) !important;
     border-bottom-color: transparent;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -163,8 +163,8 @@ body #nav ul li a.active span:before { color: var(--amber); }
     color: var(--amber);
   }
   body.has-hero #nav ul li:last-child a:hover,
-  body.has-hero #nav ul li:last-child a.active { background: var(--amber); color: #0b1620 !important; }
-  body.has-hero #nav ul li:last-child a.active span:before { color: #0b1620; }
+  body.has-hero #nav ul li:last-child a.active { background: var(--amber); color: #0a0a0a !important; }
+  body.has-hero #nav ul li:last-child a.active span:before { color: #0a0a0a; }
 }
 
 /* Menú móvil: panel lateral oscuro y botón con área táctil de 44px */
@@ -173,7 +173,7 @@ body #nav ul li a.active span:before { color: var(--amber); }
   body #nav ul li a { padding: .75em 1.25em; }
   #headerToggle { height: 56px; width: 64px; }
   #headerToggle .toggle:before {
-    background: rgba(11, 22, 32, .85);
+    background: rgba(0, 0, 0, .85);
     border: 1px solid var(--line);
     box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
     width: 44px; height: 44px; line-height: 44px;
@@ -188,7 +188,7 @@ body #nav ul li a.active span:before { color: var(--amber); }
 #main > section.cover.one {
   background-color: var(--bg);
   background-image:
-    linear-gradient(180deg, rgba(11, 22, 32, .55) 0%, rgba(11, 22, 32, .1) 38%, rgba(11, 22, 32, .94) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .1) 38%, rgba(0, 0, 0, .94) 100%),
     url("../../images/Alex_catto_portada.webp");
   background-size: cover;
   background-position: center 30%;
@@ -236,7 +236,7 @@ body #nav ul li a.active span:before { color: var(--amber); }
 
 .gallery-prev, .gallery-next {
   color: #fff !important;
-  background: rgba(11, 22, 32, .75);
+  background: rgba(0, 0, 0, .75);
   border: 1px solid var(--line);
   border-radius: 50%;
   width: 44px; height: 44px;
@@ -272,7 +272,7 @@ form textarea:focus {
 }
 
 /* ---------- Pie ---------- */
-#footer { background-color: #07111a; box-shadow: none; border-top: 1px solid var(--line); color: var(--muted); }
+#footer { background-color: #030304; box-shadow: none; border-top: 1px solid var(--line); color: var(--muted); }
 #footer .icons a { color: var(--muted); }
 #footer .icons a:hover { color: var(--amber); }
 #footer .icons .texto-contacto { font-size: .95rem; }
@@ -297,13 +297,13 @@ form textarea:focus {
 
 /* ---------- Faders (servicios, estilo Yamaha QL) ---------- */
 .faders-wrap{max-width:960px;margin:2.5rem auto 0}
-.faders{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;background:linear-gradient(#142a3c,#0f1f2d);
+.faders{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;background:linear-gradient(#1c1c1c,#121212);
   border:1px solid var(--line);border-radius:14px;padding:1rem .5rem 1rem;box-shadow:0 20px 50px rgba(0,0,0,.45)}
 .ch{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-decoration:none;color:inherit;padding:.3rem .2rem;border-radius:10px}
 .ch:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .ch:hover .name{color:var(--amber)}
 .name{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-align:center;min-height:2.2em;display:flex;align-items:center}
-.read{font:700 .8rem/1 ui-monospace,Consolas,monospace;background:#050b11;color:var(--amber);border:1px solid var(--line);
+.read{font:700 .8rem/1 ui-monospace,Consolas,monospace;background:#050505;color:var(--amber);border:1px solid var(--line);
   border-radius:6px;padding:.35rem .4rem;min-width:4.6em;text-align:center}
 
 .strip{--h:260px;position:relative;height:var(--h);width:100%;display:flex;justify-content:center;gap:.5rem}
@@ -311,14 +311,14 @@ form textarea:focus {
 .scale span{position:absolute;right:0;transform:translateY(50%);font:.55rem/1 ui-monospace,Consolas,monospace;color:var(--muted)}
 .scale span::after{content:"";display:inline-block;width:5px;height:1px;background:var(--muted);margin-left:3px;vertical-align:middle}
 .scale .z{color:var(--amber)}
-.track{position:relative;width:8px;height:100%;border-radius:4px;background:#04090e;box-shadow:inset 0 0 0 1px #1d3347,inset 0 2px 6px #000}
+.track{position:relative;width:8px;height:100%;border-radius:4px;background:#050505;box-shadow:inset 0 0 0 1px #2a2a2a,inset 0 2px 6px #000}
 .cap{position:absolute;left:50%;width:34px;height:52px;margin-left:-17px;transform:translateY(50%);
-  border-radius:5px;background:linear-gradient(#5b6b78,#2c3943 45%,#1c262e);
-  box-shadow:0 6px 12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.25),inset 0 0 0 1px #0a1219}
+  border-radius:5px;background:linear-gradient(#6a6a6a,#363636 45%,#222222);
+  box-shadow:0 6px 12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.25),inset 0 0 0 1px #000}
 .cap::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:3px;margin-top:-1.5px;background:var(--amber);border-radius:2px;
   box-shadow:0 0 6px rgba(239,159,39,.7)}
 .meter{display:flex;flex-direction:column-reverse;gap:2px;width:9px;height:100%;padding:1px 0}
-.meter i{flex:1;border-radius:1px;background:#16222d;transition:background .08s}
+.meter i{flex:1;border-radius:1px;background:#232323;transition:background .08s}
 .meter i.on{background:var(--green)}
 .meter i.on.y{background:var(--amber)}
 .meter i.on.r{background:var(--red)}
@@ -372,7 +372,7 @@ form textarea:focus {
 .gallery-grid .image-container::after {
   width: 52px; height: 52px; line-height: 52px; text-align: center;
   border-radius: 50%;
-  background: rgba(11, 22, 32, .6);
+  background: rgba(0, 0, 0, .6);
   font-size: 1.2rem;
   text-shadow: none;
 }
@@ -397,3 +397,106 @@ body #nav a:focus-visible,
 }
 
 #footer .copyright { margin-top: 1.5em; }
+
+/* =====================================================================
+   Layout ancho y en dos columnas (texto a un lado, gráfico al otro)
+   ===================================================================== */
+:root { --gutter: clamp(1rem, 4vw, 4.5rem); }
+
+.container { width: 100%; max-width: 1680px; padding: 0 var(--gutter); }
+#main > section { padding: 4.5rem 0; text-align: left; }
+@media screen and (max-width: 736px) { #main > section { padding: 3rem 0; } }
+
+/* Títulos y texto alineados a la izquierda */
+#main > section:not(.cover) header { text-align: left; }
+header h2.txt_audiowideregular::after { margin-left: 0; }
+.txt_paragraph { margin-left: 0; margin-right: 0; max-width: 62ch; }
+#main > section:not(.cover) br { display: none; }
+
+/* Cabecera alineada con el contenido */
+@media screen and (min-width: 961px) { body #header { padding: 0 var(--gutter); } }
+
+/* Hero: contenido arriba y a todo el ancho del contenedor */
+#main > section.cover.one {
+  align-items: flex-start;
+  min-height: min(calc(100svh - 80px), 760px);
+  padding: clamp(3.5rem, 11vh, 8rem) 0 4rem;
+}
+.hero { max-width: none; margin: 0; }
+
+.faders-wrap { margin: 0; max-width: none; }
+
+@media screen and (min-width: 981px) {
+
+  /* Sobre mí: texto | faders, y debajo las tarjetas a todo el ancho */
+  #about > .container {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+    align-items: start;
+  }
+  #about > .container > header { grid-column: 1; grid-row: 1; }
+  #about > .container > .txt_paragraph:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+  #about > .container > .faders-wrap { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  #about > .container > .txt_paragraph:nth-of-type(2) { grid-column: 1 / -1; grid-row: 3; max-width: 90ch; margin-top: 3rem; }
+  #about > .container > .row { grid-column: 1 / -1; grid-row: 4; }
+  #about > .container > .button { grid-column: 1 / -1; grid-row: 5; justify-self: start; margin-top: 1rem; }
+
+  /* FAQ: título | preguntas */
+  #faq > .container,
+  #contact > .container {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+    align-items: start;
+  }
+  #faq > .container > header,
+  #contact > .container > header { grid-column: 1; grid-row: 1; }
+  #faq .faq-list { grid-column: 2; grid-row: 1 / span 2; max-width: none; margin: 0; }
+  #contact > .container > .txt_paragraph { grid-column: 1; grid-row: 2; }
+  #contact > .container > form { grid-column: 2; grid-row: 1 / span 3; }
+
+  /* Portfolio: texto + botón | carrusel */
+  #sec_show > .container,
+  #sec_videomaking > .container,
+  #sec_photo > .container,
+  #sec_design > .container {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(2rem, 4vw, 5rem);
+    align-items: start;
+  }
+  #sec_show > .container > header,
+  #sec_videomaking > .container > header,
+  #sec_photo > .container > header,
+  #sec_design > .container > header { grid-column: 1; grid-row: 1; }
+  #sec_show > .container > .txt_paragraph,
+  #sec_videomaking > .container > .txt_paragraph,
+  #sec_photo > .container > .txt_paragraph,
+  #sec_design > .container > .txt_paragraph { grid-column: 1; grid-row: 2; max-width: none; }
+  #sec_show > .container > .gallery-carousel,
+  #sec_videomaking > .container > .gallery-carousel,
+  #sec_photo > .container > .gallery-carousel,
+  #sec_design > .container > .gallery-carousel { grid-column: 2; grid-row: 1 / span 3; min-width: 0; align-self: center; }
+  #sec_show > .container > footer,
+  #sec_videomaking > .container > footer,
+  #sec_photo > .container > footer,
+  #sec_design > .container > footer { grid-column: 1; grid-row: 3; text-align: left; margin-top: 1rem; }
+}
+
+/* Menú de la galería: flechas dentro del carrusel en todos los anchos */
+.gallery-prev { left: .5em; }
+.gallery-next { right: .5em; }
+.gallery-scroll { margin-bottom: 0; }
+
+/* Tarjetas de "Sobre mí" en columnas tipo mosaico (1–4 según el ancho) */
+#about .row { display: block; column-count: 1; column-gap: 1.25rem; margin: 0; }
+#about .row > div { display: contents; }
+#about .row .item { break-inside: avoid; margin-bottom: 1.25rem; }
+@media screen and (min-width: 640px)  { #about .row { column-count: 2; } }
+@media screen and (min-width: 981px)  { #about .row { column-count: 3; } }
+@media screen and (min-width: 1500px) { #about .row { column-count: 4; } }
+
+/* Formulario a todo el ancho de su columna */
+#contact form { max-width: none; margin: 0; }
