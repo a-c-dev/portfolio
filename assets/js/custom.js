@@ -217,6 +217,7 @@
 
 // Faders de la sección "Sobre mí": suben desde -∞ hasta su nivel al entrar en pantalla.
 (function(){
+  if (!document.getElementById('faders')) return; // solo existe en index.html
   // Curva dB -> % de recorrido (no lineal, como un fader real). -∞ = 0 %.
   // Marcas como en el fader de una Yamaha QL/CL: 10 5 0 5 10 20 30 40 50 60 ∞
   var MAP=[[-60,6],[-50,13],[-40,21],[-30,31],[-20,44],[-10,59],[-5,69],[0,78],[5,89],[10,100]];

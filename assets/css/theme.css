@@ -329,3 +329,63 @@ form textarea:focus {
   .faders{grid-template-columns:repeat(3,1fr);row-gap:1.5rem}
   .strip{--h:200px}
 }
+
+/* ---------- Galerías (paso 3) ---------- */
+/* Tarjeta de galería: foto + título en una misma pieza con borde y radio. */
+.gallery-grid .gallery-item { width: 280px; }
+@media screen and (max-width: 736px) { .gallery-grid .gallery-item { width: 220px; } }
+
+.gallery-grid .item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 0;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.gallery-grid .item:hover,
+.gallery-grid .item:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--amber);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+}
+.gallery-grid .image-container { border-radius: 0; }
+.gallery-grid .item header {
+  margin: 0;
+  padding: .75em 1em;
+  font-size: .9rem;
+  text-align: left;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.gallery-grid .item header h3 {
+  font-size: .9rem;
+  line-height: 1.35;
+  margin: 0;
+  letter-spacing: .01em;
+}
+
+/* Hover suave: sin zoom enorme ni foto casi negra. */
+.gallery-grid .image-container:hover img {
+  transform: scale(1.06);
+  filter: brightness(.65);
+  opacity: 1;
+}
+.gallery-grid .image-container::after {
+  width: 52px; height: 52px; line-height: 52px; text-align: center;
+  border-radius: 50%;
+  background: rgba(11, 22, 32, .6);
+  font-size: 1.2rem;
+  text-shadow: none;
+}
+
+/* Tarjetas de "Sobre mí" (con descripción al pasar el ratón) */
+.image-container:hover img { transform: scale(1.08); filter: brightness(.28); opacity: 1; }
+.hover-text { color: var(--text); font-family: inherit; text-align: left; }
+.hover-text .txt_reference { color: var(--amber); }
+#about .item { margin-bottom: 1.5rem; }
+#about .image-container { border: 1px solid var(--line); }
+
+/* Botón "Contacta conmigo" al final de cada sección */
+section footer { margin-top: 2.5rem; }
+section footer .button { font-family: inherit; }
