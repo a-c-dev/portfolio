@@ -296,3 +296,36 @@ form textarea:focus {
   padding: .8rem 1.2rem;
   margin-bottom: 2em;
 }
+
+/* ---------- Faders (servicios, estilo Yamaha QL) ---------- */
+.faders-wrap{max-width:960px;margin:2.5rem auto 0}
+.faders{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;background:linear-gradient(#142a3c,#0f1f2d);
+  border:1px solid var(--line);border-radius:14px;padding:1rem .5rem 1rem;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.ch{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-decoration:none;color:inherit;padding:.3rem .2rem;border-radius:10px}
+.ch:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.ch:hover .name{color:var(--amber)}
+.name{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-align:center;min-height:2.2em;display:flex;align-items:center}
+.read{font:700 .8rem/1 ui-monospace,Consolas,monospace;background:#050b11;color:var(--amber);border:1px solid var(--line);
+  border-radius:6px;padding:.35rem .4rem;min-width:4.6em;text-align:center}
+
+.strip{--h:260px;position:relative;height:var(--h);width:100%;display:flex;justify-content:center;gap:.5rem}
+.scale{position:relative;width:1.9rem;height:100%}
+.scale span{position:absolute;right:0;transform:translateY(50%);font:.55rem/1 ui-monospace,Consolas,monospace;color:var(--muted)}
+.scale span::after{content:"";display:inline-block;width:5px;height:1px;background:var(--muted);margin-left:3px;vertical-align:middle}
+.scale .z{color:var(--amber)}
+.track{position:relative;width:8px;height:100%;border-radius:4px;background:#04090e;box-shadow:inset 0 0 0 1px #1d3347,inset 0 2px 6px #000}
+.cap{position:absolute;left:50%;width:34px;height:52px;margin-left:-17px;transform:translateY(50%);
+  border-radius:5px;background:linear-gradient(#5b6b78,#2c3943 45%,#1c262e);
+  box-shadow:0 6px 12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.25),inset 0 0 0 1px #0a1219}
+.cap::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:3px;margin-top:-1.5px;background:var(--amber);border-radius:2px;
+  box-shadow:0 0 6px rgba(239,159,39,.7)}
+.meter{display:flex;flex-direction:column-reverse;gap:2px;width:9px;height:100%;padding:1px 0}
+.meter i{flex:1;border-radius:1px;background:#16222d;transition:background .08s}
+.meter i.on{background:var(--green)}
+.meter i.on.y{background:var(--amber)}
+.meter i.on.r{background:var(--red)}
+
+@media (max-width:620px){
+  .faders{grid-template-columns:repeat(3,1fr);row-gap:1.5rem}
+  .strip{--h:200px}
+}
