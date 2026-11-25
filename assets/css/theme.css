@@ -1093,3 +1093,10 @@ body #nav .has-sub > a > span::after {
 /* Logo de la cabecera: enlace al inicio */
 #logo a.logo-link { display: block; border: 0; text-decoration: none; color: inherit; }
 #logo a.logo-link:hover .logo-name { color: var(--amber); }
+
+/* Enlace de texto con flecha (tarjetas de servicios de la home) */
+.text-link .arrow { display: inline-block; margin-left: .25em; transition: transform .2s ease; }
+.text-link:hover .arrow, .text-link:focus-visible .arrow { transform: translateX(5px); }
+@media screen and (max-width: 480px) {
+  .service-actions .button { font-size: .74rem; letter-spacing: .04em; padding: 1em 1.1em; width: 100%; text-align: center; white-space: nowrap; }
+}
