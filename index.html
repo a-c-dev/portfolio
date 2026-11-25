@@ -177,18 +177,32 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<div id="title" class="logo-name">Alex Catto</div>
+							<a href="#top" class="logo-link" aria-label="Alex Catto, ir al inicio"><div id="title" class="logo-name">Alex Catto</div></a>
 							<p>Técnico en Imagen y Sonido</p>
 						</div>
 
 					<!-- Nav -->
-						<nav id="nav">
+						<nav id="nav" aria-label="Principal">
 							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Home</span></a></li>
+								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Inicio</span></a></li>
 								<li><a href="#about" id="about-link"><span class="icon solid fa-user">Sobre mí</span></a></li>
-								<li><a href="portfolio-page.html" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-								<li><a href="#faq" id="faq-link"><span class="icon solid fa-question">FAQ</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contactos</span></a></li>
+								<li class="has-sub">
+									<a href="#servicios" id="services-link"><span class="icon solid fa-th">Servicios</span></a>
+									<ul class="submenu">
+									<li><a href="sonido-eventos-almeria.html"><span>Sonido y eventos</span></a></li>
+									<li><a href="video-streaming-dron-almeria.html"><span>Vídeo y dron</span></a></li>
+									</ul>
+								</li>
+								<li class="has-sub">
+									<a href="portfolio-page.html" id="portfolio-link"><span class="icon solid fa-images">Portfolio</span></a>
+									<ul class="submenu">
+									<li><a href="portfolio-page.html#sec_show"><span>Espectáculos</span></a></li>
+									<li><a href="portfolio-page.html#sec_videomaking"><span>Videomaking</span></a></li>
+									<li><a href="portfolio-page.html#sec_photo"><span>Fotografía</span></a></li>
+									<li><a href="portfolio-page.html#sec_design"><span>Diseño gráfico</span></a></li>
+									</ul>
+								</li>
+								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contacto</span></a></li>
 							</ul>
 						</nav>
 
@@ -566,6 +580,7 @@
 						<a href="sonido-eventos-almeria.html">Sonido y eventos en Almería</a>
 						<a href="video-streaming-dron-almeria.html">Vídeo, streaming y dron en Almería</a>
 						<a href="portfolio-page.html">Portfolio</a>
+						<a href="index.html#faq">Preguntas frecuentes</a>
 					</nav>
 
 				<!-- Copyright -->

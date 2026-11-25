@@ -56,6 +56,10 @@
 
 	function setActive(link) {
 		navLinks.forEach(function (a) { a.classList.toggle('active', a === link); });
+		// Si el enlace está en un submenú, se marca también su elemento padre.
+		var submenu = link.closest('.submenu');
+		var parent = submenu && submenu.parentElement.querySelector(':scope > a');
+		if (parent) parent.classList.add('active');
 	}
 
 	function sectionFor(link) {
