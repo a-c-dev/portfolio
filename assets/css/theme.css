@@ -870,3 +870,12 @@ header h2.txt_audiowideregular::after { margin-left: 0; }
   }
   #about .row.collage .item:nth-child(9) { grid-column: span 2; }                     /* Camaleones: 2×1 */
 }
+
+/* =====================================================================
+   Palabras clave "iluminadas" en naranja dentro de los textos
+   ===================================================================== */
+strong.kw {
+  color: var(--amber);
+  font-weight: 600;
+  text-shadow: 0 0 18px rgba(239, 159, 39, .35);
+}
