@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototipo faders | Alex Catto</title>
+<style>
+:root{
+  --bg:#0b1620; --surface:#122433; --line:#25405a; --text:#e8eef3; --muted:#9fb3c2;
+  --amber:#ef9f27; --green:#3ddc84; --red:#ff5a4f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,sans-serif}
+.spacer{height:90vh;display:grid;place-items:center;color:var(--muted);text-align:center;padding:1rem}
+section{max-width:960px;margin:0 auto;padding:3rem 1rem 5rem}
+h2{font-family:Audiowide,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em;text-align:center;margin:0 0 .4rem}
+.sub{text-align:center;color:var(--muted);margin:0 0 2rem}
+
+.console{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;background:linear-gradient(#142a3c,#0f1f2d);
+  border:1px solid var(--line);border-radius:14px;padding:1rem .5rem 1rem;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.ch{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-decoration:none;color:inherit;padding:.3rem .2rem;border-radius:10px}
+.ch:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.ch:hover .name{color:var(--amber)}
+.name{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-align:center;min-height:2.2em;display:flex;align-items:center}
+.read{font:700 .8rem/1 ui-monospace,Consolas,monospace;background:#050b11;color:var(--amber);border:1px solid var(--line);
+  border-radius:6px;padding:.35rem .4rem;min-width:4.6em;text-align:center}
+
+.strip{--h:260px;position:relative;height:var(--h);width:100%;display:flex;justify-content:center;gap:.5rem}
+.scale{position:relative;width:1.9rem;height:100%}
+.scale span{position:absolute;right:0;transform:translateY(50%);font:.55rem/1 ui-monospace,Consolas,monospace;color:var(--muted)}
+.scale span::after{content:"";display:inline-block;width:5px;height:1px;background:var(--muted);margin-left:3px;vertical-align:middle}
+.scale .z{color:var(--amber)}
+.track{position:relative;width:8px;height:100%;border-radius:4px;background:#04090e;box-shadow:inset 0 0 0 1px #1d3347,inset 0 2px 6px #000}
+.cap{position:absolute;left:50%;width:34px;height:52px;margin-left:-17px;transform:translateY(50%);
+  border-radius:5px;background:linear-gradient(#5b6b78,#2c3943 45%,#1c262e);
+  box-shadow:0 6px 12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.25),inset 0 0 0 1px #0a1219}
+.cap::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:3px;margin-top:-1.5px;background:var(--amber);border-radius:2px;
+  box-shadow:0 0 6px rgba(239,159,39,.7)}
+.meter{display:flex;flex-direction:column-reverse;gap:2px;width:9px;height:100%;padding:1px 0}
+.meter i{flex:1;border-radius:1px;background:#16222d;transition:background .08s}
+.meter i.on{background:var(--green)}
+.meter i.on.y{background:var(--amber)}
+.meter i.on.r{background:var(--red)}
+
+@media (max-width:620px){
+  .console{grid-template-columns:repeat(3,1fr);row-gap:1.5rem}
+  .strip{--h:200px}
+}
+</style>
+</head>
+<body>
+<div class="spacer"><p>Prototipo — haz scroll hacia abajo<br>↓</p></div>
+
+<section id="servicios">
+  <h2>Servicios</h2>
+  <p class="sub">Cada canal sube hasta su nivel cuando entra en pantalla</p>
+
+  <div class="console" id="console">
+    <a class="ch" href="portfolio-page.html#sonido" data-db="0"   data-name="Sonido"><span class="name">Sonido</span></a>
+    <a class="ch" href="portfolio-page.html#iluminacion" data-db="-5"  data-name="Iluminación"><span class="name">Iluminación</span></a>
+    <a class="ch" href="portfolio-page.html#produccion" data-db="0"  data-name="Producción"><span class="name">Producción</span></a>
+    <a class="ch" href="portfolio-page.html#fotografia" data-db="-10"  data-name="Fotografía"><span class="name">Fotografía</span></a>
+    <a class="ch" href="portfolio-page.html#videomaking" data-db="-5" data-name="Videomaking"><span class="name">Videomaking</span></a>
+    <a class="ch" href="portfolio-page.html#diseno" data-db="-10" data-name="Diseño gráfico"><span class="name">Diseño gráfico</span></a>
+  </div>
+</section>
+<div class="spacer"></div>
+
+<script>
+(function(){
+  // Curva dB -> % de recorrido (no lineal, como un fader real). -∞ = 0 %.
+  // Marcas como en el fader de una Yamaha QL/CL: 10 5 0 5 10 20 30 40 50 60 ∞
+  var MAP=[[-60,6],[-50,13],[-40,21],[-30,31],[-20,44],[-10,59],[-5,69],[0,78],[5,89],[10,100]];
+  function dbToPct(db){
+    if(db===-Infinity) return 0;
+    if(db<=MAP[0][0]) return MAP[0][1];
+    for(var i=1;i<MAP.length;i++){
+      if(db<=MAP[i][0]){var a=MAP[i-1],b=MAP[i];return a[1]+(b[1]-a[1])*(db-a[0])/(b[0]-a[0]);}
+    }
+    return 100;
+  }
+  function pctToDb(p){
+    if(p<=2.5) return -Infinity;
+    if(p<=MAP[0][1]) return -60;
+    for(var i=1;i<MAP.length;i++){
+      if(p<=MAP[i][1]){var a=MAP[i-1],b=MAP[i];return a[0]+(b[0]-a[0])*(p-a[1])/(b[1]-a[1]);}
+    }
+    return 10;
+  }
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SEGS=24, TICKS=[10,5,0,-5,-10,-20,-30,-40,-50,-60,-Infinity];
+  var tickLabel=function(t){return t===-Infinity?'∞':String(Math.abs(t));};
+  var easeOutBack=function(t){var c=1.4;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2);};
+
+  var chans=[].map.call(document.querySelectorAll('.ch'),function(el){
+    var strip=document.createElement('div');strip.className='strip';strip.setAttribute('aria-hidden','true');
+    var scale='<div class="scale">'+TICKS.map(function(t){
+      return '<span'+(t===0?' class="z"':'')+' style="bottom:'+dbToPct(t)+'%">'+tickLabel(t)+'</span>';}).join('')+'</div>';
+    var segs='';for(var i=0;i<SEGS;i++){segs+='<i class="'+(i>=SEGS-3?'r':i>=SEGS-7?'y':'')+'"></i>';}
+    strip.innerHTML=scale+'<div class="track"><div class="cap"></div></div><div class="meter">'+segs+'</div>';
+    var read=document.createElement('span');read.className='read';read.setAttribute('aria-hidden','true');
+    el.appendChild(strip);el.appendChild(read);
+    var db=parseFloat(el.dataset.db);
+    el.setAttribute('aria-label',el.dataset.name+': nivel '+(db>0?'+':'')+db+' dB');
+    return {el:el,cap:strip.querySelector('.cap'),segs:strip.querySelectorAll('.meter i'),read:read,target:dbToPct(db),db:db,p:0};
+  });
+
+  function draw(c,p,live){
+    c.cap.style.bottom=p+'%';
+    var db=pctToDb(p);
+    c.read.textContent=(db===-Infinity)?'-∞ dB':((db>0?'+':'')+db.toFixed(1)+' dB');
+    var lit=Math.round(p/100*SEGS);
+    if(live) lit=Math.max(0,lit+Math.round((Math.random()-.5)*3));
+    for(var i=0;i<SEGS;i++) c.segs[i].classList.toggle('on',i<lit);
+  }
+
+  chans.forEach(function(c){draw(c,reduce?c.target:0,false);});
+
+  var played=false,idle=null;
+  function play(){
+    if(played)return;played=true;
+    if(reduce)return;
+    var T=1800,t0=performance.now();
+    (function frame(now){
+      var done=true;
+      chans.forEach(function(c,i){
+        var t=Math.min(1,Math.max(0,(now-t0-i*130)/T));
+        if(t<1)done=false;
+        c.p=c.target*easeOutBack(t);
+        draw(c,Math.max(0,c.p),false);
+      });
+      if(!done)requestAnimationFrame(frame);
+      else idle=setInterval(function(){chans.forEach(function(c){draw(c,c.target,true);});},140);
+    })(t0);
+  }
+  new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play();});},{threshold:.4})
+    .observe(document.getElementById('console'));
+})();
+</script>
+</body>
+</html>

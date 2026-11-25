@@ -205,3 +205,12 @@
 	});
 
 })();
+
+// Cabecera: transparente sobre el hero y sólida al hacer scroll.
+(function () {
+	function update() {
+		document.body.classList.toggle('scrolled', window.scrollY > 40);
+	}
+	window.addEventListener('scroll', update, { passive: true });
+	update();
+})();
