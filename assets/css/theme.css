@@ -1132,3 +1132,34 @@ body #nav .has-sub > a > span::after {
       var(--hero-image);
   }
 }
+
+/* Portada de las páginas de servicio: la foto es una <img> (ruta relativa, funciona
+   en cualquier sitio) y el degradado va en un pseudo-elemento encima. */
+#main > section.service-intro.has-photo {
+  background-image: none;
+  position: relative;
+  isolation: isolate;
+}
+.service-intro.has-photo > .hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--hero-pos, center);
+  z-index: -2;
+}
+#main > section.service-intro.has-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .45) 55%, rgba(0, 0, 0, .15) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, .92) 100%);
+}
+@media screen and (max-width: 960px) {
+  #main > section.service-intro.has-photo::before {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .46) 40%, rgba(0, 0, 0, .92) 100%);
+  }
+}
