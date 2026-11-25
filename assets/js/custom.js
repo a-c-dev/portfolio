@@ -156,40 +156,83 @@
     .observe(document.getElementById("faders"));
 })();
 
-// Portfolio (escritorio): la última fila del mosaico se completa estirando
-// la última foto hasta el borde derecho, para no dejar huecos.
+// Portfolio (escritorio): ajusta el mosaico para que no queden huecos ni fotos
+// excesivamente anchas.
+//  1. El bloque de texto ocupa solo las filas que necesita.
+//  2. La última fila (si no está completa) se reparte a partes iguales entre
+//     sus fotos y se hace el doble de alta, para que ninguna quede como una
+//     franja. Si la última fila tuviera una sola foto, ella y la
+//     fila anterior se reordenan en dos bandas altas (2+2+1 y 1+2+2).
 (function () {
-	var items = document.querySelectorAll('.row.mosaic');
-	if (!items.length) return;
+	var mosaics = document.querySelectorAll('.row.mosaic');
+	if (!mosaics.length) return;
+
+	function rowsOf(items) {
+		var rows = [];
+		items.forEach(function (item) {
+			var top = Math.round(item.getBoundingClientRect().top);
+			var row = rows.filter(function (r) { return Math.abs(r.top - top) < 4; })[0];
+			if (!row) { row = { top: top, items: [] }; rows.push(row); }
+			row.items.push(item);
+		});
+		rows.sort(function (a, b) { return a.top - b.top; });
+		return rows;
+	}
 
 	function fill() {
-		Array.prototype.forEach.call(items, function (mosaic) {
+		Array.prototype.forEach.call(mosaics, function (mosaic) {
 			var grid = mosaic.closest('.container');
-			var last = mosaic.lastElementChild;
-			if (!grid || !last) return;
-			var text = grid.querySelector('.mosaic-text');
-			last.style.gridColumn = '';
+			var text = grid && grid.querySelector('.mosaic-text');
+			var items = Array.prototype.slice.call(mosaic.children);
+			if (!grid || !items.length) return;
+
+			items.forEach(function (i) { i.style.gridColumn = ''; i.style.gridRow = ''; });
 			if (text) text.style.gridRow = '';
+
 			var gs = getComputedStyle(grid);
 			if (gs.display !== 'grid') return; // en móvil no hace falta
 
-			// El bloque de texto ocupa solo las filas que necesita (mínimo 2).
+			var cols = gs.gridTemplateColumns.split(' ').length;
+			var gapY = parseFloat(gs.rowGap) || 0;
+
+			// 1. Filas del bloque de texto.
 			if (text) {
 				text.style.gridRow = '1 / span 8';
-				var rows = getComputedStyle(grid).gridTemplateRows.split(' ').map(parseFloat);
-				var rowH = Math.min.apply(null, rows.filter(function (n) { return n > 0; }));
-				var gapY = parseFloat(gs.rowGap) || 0;
+				var tracks = getComputedStyle(grid).gridTemplateRows.split(' ').map(parseFloat);
+				var rowH = Math.min.apply(null, tracks.filter(function (n) { return n > 0; }));
 				var need = Math.max(2, Math.ceil((text.getBoundingClientRect().height + gapY) / (rowH + gapY)));
 				text.style.gridRow = '1 / span ' + need;
 			}
 
-			var cols = gs.gridTemplateColumns.split(' ').length;
-			var gap = parseFloat(gs.columnGap) || 0;
-			var contentLeft = grid.getBoundingClientRect().left + parseFloat(gs.paddingLeft);
-			var rect = last.getBoundingClientRect();
-			var index = Math.round((rect.left - contentLeft) / (rect.width + gap));
-			var span = cols - index;
-			if (span > 1) last.style.gridColumn = 'span ' + span;
+			// 2. Última fila.
+			var rows = rowsOf(items);
+			var lastRow = rows[rows.length - 1];
+			if (!lastRow || lastRow.items.length >= cols || rows.length < 2) return;
+
+			if (lastRow.items.length === 1) {
+				var prev = rows[rows.length - 2].items;
+				var colW = lastRow.items[0].getBoundingClientRect().width;
+				var allSingle = prev.length === cols && prev.every(function (i) {
+					return Math.abs(i.getBoundingClientRect().width - colW) < 3;
+				});
+				if (!allSingle || cols !== 5) return;
+				// Seis fotos (la fila anterior + la sola) en dos bandas altas: 2+2+1 y 1+2+2.
+				var six = prev.concat(lastRow.items);
+				var spans = [2, 2, 1, 1, 2, 2];
+				six.forEach(function (item, idx) {
+					item.style.gridColumn = 'span ' + spans[idx];
+					item.style.gridRow = 'span 2';
+				});
+				return;
+			}
+
+			var k = lastRow.items.length;
+			var base = Math.floor(cols / k);
+			var extra = cols % k;
+			lastRow.items.forEach(function (item, idx) {
+				item.style.gridColumn = 'span ' + (base + (idx < extra ? 1 : 0));
+				item.style.gridRow = 'span 2';
+			});
 		});
 	}
 
