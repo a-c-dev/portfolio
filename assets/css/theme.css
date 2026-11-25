@@ -731,3 +731,46 @@ header h2.txt_audiowideregular::after { margin-left: 0; }
   .mosaic > .mosaic-item:nth-child(6n+4):last-child { grid-column: span 3; }
   .mosaic > .mosaic-item:nth-child(6n+5):last-child { grid-column: span 2; }
 }
+
+/* =====================================================================
+   Portfolio (escritorio): texto y fotos comparten una sola rejilla.
+   El texto ocupa solo las primeras filas a la izquierda; después las
+   fotos se reparten por todo el ancho.
+   ===================================================================== */
+@media screen and (min-width: 981px) {
+  #sec_show > .container,
+  #sec_videomaking > .container,
+  #sec_photo > .container,
+  #sec_design > .container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(clamp(150px, 13vw, 240px), auto);
+    grid-auto-flow: dense;
+    gap: 6px;
+    column-gap: 6px;
+    align-items: stretch;
+  }
+
+  .mosaic-text {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 3;
+    align-self: start;
+    padding-right: clamp(1rem, 3vw, 3.5rem);
+  }
+  .mosaic-text header { margin-bottom: 1.5rem; }
+  .mosaic-text .txt_paragraph { max-width: none; }
+  .mosaic-text footer { margin-top: 1.5rem; text-align: left; }
+
+  /* Los contenedores intermedios desaparecen: las fotos son hijas directas de la rejilla */
+  .mosaic-wrap, .mosaic-scroll, .row.mosaic { display: contents; }
+
+  body .row.mosaic > .mosaic-item.mosaic-item:nth-child(n) { grid-column: auto; grid-row: auto; }
+  body .row.mosaic > .mosaic-item.mosaic-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+}
+
+/* Móvil/tablet: separación entre el bloque de texto y el mosaico */
+@media screen and (max-width: 980px) {
+  .mosaic-text { margin-bottom: 1.75rem; }
+  .mosaic-text footer { margin-top: 1.25rem; }
+}

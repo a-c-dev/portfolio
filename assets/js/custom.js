@@ -155,3 +155,50 @@
   new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play();});},{threshold:.4})
     .observe(document.getElementById("faders"));
 })();
+
+// Portfolio (escritorio): la última fila del mosaico se completa estirando
+// la última foto hasta el borde derecho, para no dejar huecos.
+(function () {
+	var items = document.querySelectorAll('.row.mosaic');
+	if (!items.length) return;
+
+	function fill() {
+		Array.prototype.forEach.call(items, function (mosaic) {
+			var grid = mosaic.closest('.container');
+			var last = mosaic.lastElementChild;
+			if (!grid || !last) return;
+			var text = grid.querySelector('.mosaic-text');
+			last.style.gridColumn = '';
+			if (text) text.style.gridRow = '';
+			var gs = getComputedStyle(grid);
+			if (gs.display !== 'grid') return; // en móvil no hace falta
+
+			// El bloque de texto ocupa solo las filas que necesita (mínimo 2).
+			if (text) {
+				text.style.gridRow = '1 / span 8';
+				var rows = getComputedStyle(grid).gridTemplateRows.split(' ').map(parseFloat);
+				var rowH = Math.min.apply(null, rows.filter(function (n) { return n > 0; }));
+				var gapY = parseFloat(gs.rowGap) || 0;
+				var need = Math.max(2, Math.ceil((text.getBoundingClientRect().height + gapY) / (rowH + gapY)));
+				text.style.gridRow = '1 / span ' + need;
+			}
+
+			var cols = gs.gridTemplateColumns.split(' ').length;
+			var gap = parseFloat(gs.columnGap) || 0;
+			var contentLeft = grid.getBoundingClientRect().left + parseFloat(gs.paddingLeft);
+			var rect = last.getBoundingClientRect();
+			var index = Math.round((rect.left - contentLeft) / (rect.width + gap));
+			var span = cols - index;
+			if (span > 1) last.style.gridColumn = 'span ' + span;
+		});
+	}
+
+	var timer = null;
+	function schedule() {
+		clearTimeout(timer);
+		timer = setTimeout(fill, 100);
+	}
+	window.addEventListener('load', fill);
+	window.addEventListener('resize', schedule);
+	fill();
+})();
