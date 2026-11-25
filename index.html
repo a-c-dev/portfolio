@@ -1,34 +1,29 @@
 <!DOCTYPE HTML>
 <html lang="es">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2VQ8D5B0QG"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-2VQ8D5B0QG');
-		</script>
+		<script src="assets/js/consent.js" defer></script>
 
-		<title>Alex Catto | Técnico de Sonido y Audiovisual en Almería</title>
+		<title>Técnico de sonido en Almería | Alex Catto</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Alex Catto, técnico de sonido y audiovisual en Almería. Espectáculos, streaming en directo, vídeo con dron, fotografía y diseño gráfico.">
   		<meta name="robots" content="index, follow">
 		<link rel="canonical" href="https://alexcatto.com/" />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://alexcatto.com/" />
-		<meta property="og:title" content="Alex Catto | Técnico de Sonido y Audiovisual en Almería" />
+		<meta property="og:title" content="Técnico de sonido en Almería | Alex Catto" />
 		<meta property="og:description" content="Alex Catto, técnico de sonido y audiovisual en Almería. Espectáculos, streaming en directo, vídeo con dron, fotografía y diseño gráfico." />
 		<meta property="og:image" content="https://alexcatto.com/images/Alex_catto_portada-og.jpg" />
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Alex Catto | Técnico de Sonido y Audiovisual en Almería" />
+		<meta name="twitter:title" content="Técnico de sonido en Almería | Alex Catto" />
 		<meta name="twitter:description" content="Alex Catto, técnico de sonido y audiovisual en Almería. Espectáculos, streaming en directo, vídeo con dron, fotografía y diseño gráfico." />
 		<meta name="twitter:image" content="https://alexcatto.com/images/Alex_catto_portada-og.jpg" />
 
 		<link rel="icon" type="image/png" href="images/iconograma-transparent.png" />
+		<link rel="preload" href="assets/webfonts/audiowide-regular-webfont.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="images/Alex_catto_portada.webp" as="image" fetchpriority="high" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 			<link rel="stylesheet" href="assets/css/theme.css" />
 
@@ -50,6 +45,76 @@
 				"https://www.instagram.com/audiovisu.alex/",
 				"https://www.linkedin.com/in/alex-catto/"
 			]
+		}
+		</script>
+
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"@id": "https://alexcatto.com/#servicio",
+			"name": "Alex Catto - Técnico de Sonido y Audiovisual",
+			"url": "https://alexcatto.com/",
+			"image": "https://alexcatto.com/images/Alex_catto_portada-og.jpg",
+			"email": "catto.alex.es@gmail.com",
+			"description": "Técnico de sonido y audiovisual autónomo en Almería: sonido e iluminación para espectáculos en directo, streaming, vídeo con dron, fotografía y diseño gráfico.",
+			"areaServed": [
+				{
+					"@type": "City",
+					"name": "Almería"
+				},
+				{
+					"@type": "AdministrativeArea",
+					"name": "Provincia de Almería"
+				}
+			],
+			"founder": {
+				"@type": "Person",
+				"name": "Alex Catto"
+			},
+			"sameAs": [
+				"https://www.instagram.com/audiovisu.alex/",
+				"https://www.linkedin.com/in/alex-catto/"
+			],
+			"knowsAbout": [
+				"Sonido en directo",
+				"Iluminación de espectáculos",
+				"Streaming en directo",
+				"Producción audiovisual",
+				"Vídeo con dron",
+				"Fotografía",
+				"Diseño gráfico"
+			],
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Servicios",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Sonido e iluminación para espectáculos en directo",
+							"url": "https://alexcatto.com/sonido-eventos-almeria.html"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Vídeo, streaming en directo y grabación con dron",
+							"url": "https://alexcatto.com/video-streaming-dron-almeria.html"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Fotografía de eventos y diseño gráfico",
+							"url": "https://alexcatto.com/portfolio-page.html"
+						}
+					}
+				]
+			}
 		}
 		</script>
 
@@ -112,7 +177,7 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1 id="title">Alex Catto</h1>
+							<div id="title" class="logo-name">Alex Catto</div>
 							<p>Técnico en Imagen y Sonido</p>
 						</div>
 
@@ -139,8 +204,10 @@
 						<div class="container hero">
 								<p class="hero-kicker">Almería · Directo · Streaming · Vídeo</p>
 								<header>
-									<h2 class="txt_main_title">ALEX CATTO</h2>
-									<h3 class="txt_second_title">Técnico en Imagen y Sonido</h3>
+									<h1 class="hero-title">
+										<span class="txt_main_title">ALEX CATTO</span>
+										<span class="txt_second_title">Técnico de sonido y audiovisual en Almería</span>
+									</h1>
 								</header>
 								<div class="hero-actions">
 									<a href="portfolio-page.html" class="button">Ver portfolio</a>
@@ -186,7 +253,7 @@
 								<article class="item">
 										<a href="https://www.youtube.com/watch?v=HRx_yAQyjOY" class="image fit" target="_blank">
 											<div class="image-container">
-												<img src="images/fotos_eventos/AMP_LaTraviart2.webp" alt="Ópera La Traviata en el Auditorio Maestro Padilla, Almería" width="1200" height="801" />
+												<img src="images/thumbs/fotos_eventos/AMP_LaTraviart2.webp" alt="Ópera La Traviata en el Auditorio Maestro Padilla, Almería" width="1200" height="801" />
 												<div class="hover-text">Diseño de sonido para la ópera La Traviata 
 													en el Auditorio Maestro Padilla 
 													para grabación y monitores. 
@@ -215,7 +282,7 @@
 								<article class="item">
 										<a href="images/fotos_eventos/AntonioDeQuero.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img src="images/fotos_eventos/AntonioDeQuero.webp" alt="Jornada flamenca Almería: Un viaje por el baile en la Escuela Municipal de Música y Arte, Almería" width="1600" height="2400" />
+												<img src="images/thumbs/fotos_eventos/AntonioDeQuero.webp" alt="Jornada flamenca Almería: Un viaje por el baile en la Escuela Municipal de Música y Arte, Almería" width="1600" height="2400" />
 												<div class="hover-text">Ideación y producción de la jornada flamenca 
 													"Almería: Un viaje por el baile" en las instalaciones de la 
 													Escuela Municipal de Música y Arte. 
@@ -244,7 +311,7 @@
 								<article class="item">
 										<a href="images/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img src="images/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO.webp" alt="Festival Flamenco 2026 en el Auditorio Maestro Padilla, Almería" width="2048" height="1367" />
+												<img src="images/thumbs/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO.webp" alt="Festival Flamenco 2026 en el Auditorio Maestro Padilla, Almería" width="2048" height="1367" />
 												<div class="hover-text">Montaje de sonido y técnico de FOH y monitores en el Festival Flamenco 2026 en Auditorio Maestro Padilla.
 													<br><span class="txt_reference">Ph: Desconocido</span>
 												</div>
@@ -270,7 +337,7 @@
 								<article class="item">
 										<a href="images/fotos_eventos/TA_DevonLamaar.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img src="images/fotos_eventos/TA_DevonLamaar.webp" alt="Concierto de Devon Lamaar, Festival Almerijazz, en el Teatro Apolo, Almería" width="1400" height="933" />
+												<img src="images/thumbs/fotos_eventos/TA_DevonLamaar.webp" alt="Concierto de Devon Lamaar, Festival Almerijazz, en el Teatro Apolo, Almería" width="1400" height="933" />
 												<div class="hover-text">
 													Montaje de sonido e iluminación y operación en directo con mesa LT Hydra II en el Teatro Apolo.
 													<br><span class="txt_reference">Ph: Ángel Vicente (AlmeriJazz)</span>
@@ -297,7 +364,7 @@
 								<article class="item">
 										<a href="images/fotos_eventos/Camaleones-rock-Adra.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img src="images/fotos_eventos/Camaleones-rock-Adra.webp" alt="Concierto de Camaleones Rock en el Festival de Food Trucks de Adra" width="2400" height="1198" />
+												<img src="images/thumbs/fotos_eventos/Camaleones-rock-Adra.webp" alt="Concierto de Camaleones Rock en el Festival de Food Trucks de Adra" width="2400" height="1198" />
 												<div class="hover-text">
 													Diseño de sonido, montaje y mezcla en directo para Camaleones Rock en el Festival de Food Trucks de Adra.
 													<br><span class="txt_reference">Ph: Desconocido</span>
@@ -311,7 +378,7 @@
 								<article class="item">
 										<a href="images/fotos_eventos/La Causa Swing ed.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img src="images/fotos_eventos/La Causa Swing ed.webp" alt="Concierto de La Causa Swing en la terraza de A.s.c. La Guajira, Almería" width="2400" height="1603" />
+												<img src="images/thumbs/fotos_eventos/La Causa Swing ed.webp" alt="Concierto de La Causa Swing en la terraza de A.s.c. La Guajira, Almería" width="2400" height="1603" />
 												<div class="hover-text">
 													Montaje de sonido y mezcla en directo en la terraza de A.s.c. La Guajira.
 													<br><span class="txt_reference">Ph: Alex Catto (yo mismo)</span>
@@ -336,12 +403,15 @@
 							</header>
 							<div class="services">
 								<article class="service-card">
-									<img loading="lazy" decoding="async" src="images/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO_2.webp" alt="Escenario del Festival Flamenco 2026 en el Auditorio Maestro Padilla, Almería" width="2048" height="1364" />
+									<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO_2.webp" alt="Escenario del Festival Flamenco 2026 en el Auditorio Maestro Padilla, Almería" width="2048" height="1364" />
 									<div class="service-body">
 										<h3>Espectáculos</h3>
 										<p>Sonido, iluminación, maquinaria, montaje y proyección para conciertos, teatro y <strong class="kw">espectáculos en directo</strong>, en calle, auditorios, teatros y salas.</p>
 										<ul class="chips"><li>Sonido en directo</li><li>Iluminación</li><li>Montaje y maquinaria</li><li>Proyección</li></ul>
-										<a href="portfolio-page.html#sec_show" class="button txt_antaregular">Ver portfolio</a>
+										<div class="service-actions">
+											<a href="portfolio-page.html#sec_show" class="button txt_antaregular">Ver portfolio</a>
+											<a href="sonido-eventos-almeria.html" class="text-link">Más sobre sonido y eventos</a>
+										</div>
 									</div>
 								</article>
 								<article class="service-card">
@@ -350,7 +420,10 @@
 										<h3>Videomaking</h3>
 										<p>Producción audiovisual: videoclips, documentales, spots publicitarios, cortometrajes y <strong class="kw">streaming en directo</strong>, con grabación con <strong class="kw">dron</strong>.</p>
 										<ul class="chips"><li>Videoclips</li><li>Documentales</li><li>Spots</li><li>Streaming en directo</li><li>Dron</li></ul>
-										<a href="portfolio-page.html#sec_videomaking" class="button txt_antaregular">Ver portfolio</a>
+										<div class="service-actions">
+											<a href="portfolio-page.html#sec_videomaking" class="button txt_antaregular">Ver portfolio</a>
+											<a href="video-streaming-dron-almeria.html" class="text-link">Más sobre vídeo y dron</a>
+										</div>
 									</div>
 								</article>
 							</div>
@@ -488,10 +561,17 @@
 				</div>
 					
 
+				<!-- Enlaces del pie -->
+					<nav class="footer-nav" aria-label="Servicios">
+						<a href="sonido-eventos-almeria.html">Sonido y eventos en Almería</a>
+						<a href="video-streaming-dron-almeria.html">Vídeo, streaming y dron en Almería</a>
+						<a href="portfolio-page.html">Portfolio</a>
+					</nav>
+
 				<!-- Copyright -->
 					<ul class="copyright">
 						<li>&copy; Alex Catto. Todos los derechos están reservados.</li>
-						<li>Esta web no hace uso de cookies.</li>
+						<li><button type="button" class="link-button" data-cookie-settings>Preferencias de cookies</button></li>
 					</ul>
 
 			</div>

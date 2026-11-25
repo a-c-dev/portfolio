@@ -407,7 +407,7 @@ input[type="reset"]:hover {
     min-height: 48px;
   }
 
-  #logo h1 {
+  #logo h1, #logo .logo-name {
     font-size: 0.9em !important;
     line-height: 1.2 !important;
     margin: 0 !important;

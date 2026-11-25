@@ -2096,7 +2096,7 @@ input, select, textarea {
 		cursor: default;
 	}
 
-		#logo h1 {
+		#logo h1, #logo .logo-name {
 			position: relative;
 			color: #fff;
 			font-weight: 600;

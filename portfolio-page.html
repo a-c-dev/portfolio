@@ -1,18 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="es">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2VQ8D5B0QG"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-2VQ8D5B0QG');
-		</script>
+		<script src="assets/js/consent.js" defer></script>
 
 		<title>Portfolio | Alex Catto - Técnico de Sonido y Audiovisual en Almería</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Portfolio de Alex Catto: espectáculos, videomaking (streaming, dron), fotografía y diseño gráfico. Técnico de sonido y audiovisual en Almería.">
   		<meta name="robots" content="index, follow">
 		<link rel="canonical" href="https://alexcatto.com/portfolio-page.html" />
@@ -29,6 +22,7 @@
 		<meta name="twitter:image" content="https://alexcatto.com/images/Alex_catto_portada-og.jpg" />
 
 		<link rel="icon" type="image/png" href="images/iconograma-transparent.png" />
+		<link rel="preload" href="assets/webfonts/audiowide-regular-webfont.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="stylesheet" href="assets/css/main.css" />
 			<link rel="stylesheet" href="assets/css/theme.css" />
 
@@ -62,7 +56,7 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1 id="title">Alex Catto</h1>
+							<div id="title" class="logo-name">Alex Catto</div>
 							<p>Técnico en Imagen y Sonido</p>
 						</div>
 
@@ -83,6 +77,15 @@
 
 		<!-- Main -->
 			<div id="main">
+
+					<!-- Cabecera de página -->
+					<section class="page-intro">
+						<div class="container">
+							<p class="hero-kicker">Almería · Sonido · Vídeo · Fotografía · Diseño</p>
+							<h1>Portfolio de Alex Catto</h1>
+							<p class="page-lead">Trabajos como técnico de sonido y audiovisual en Almería: espectáculos, videomaking, fotografía y diseño gráfico.</p>
+						</div>
+					</section>
 
 				<!-- Portfolio -->
 				
@@ -113,7 +116,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Carmen Ureña bailaora 1.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Carmen Ureña bailaora 1.webp" alt="Actuación de Carmen Ureña Trío en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1302" height="1950" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Carmen Ureña bailaora 1.webp" alt="Actuación de Carmen Ureña Trío en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1302" height="1950" />
 											</div>
 										</a>
 										<header><h3>Carmen Ureña trío</h3></header>
@@ -123,7 +126,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AMMP_TitoAlcedaNonoGarcia.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AMMP_TitoAlcedaNonoGarcia.webp" alt="Concierto de Tito Alceda y Nono García en el Auditorio Maestro Padilla, Almería" width="2048" height="1536" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMMP_TitoAlcedaNonoGarcia.webp" alt="Concierto de Tito Alceda y Nono García en el Auditorio Maestro Padilla, Almería" width="2048" height="1536" />
 											</div>
 										</a>
 										<header><h3>Tito Alceda y Nono García</h3></header>
@@ -133,7 +136,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AMP_BobbyWhatson.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AMP_BobbyWhatson.webp" alt="Concierto de Bobby Whatson y Clasijazz BigBand en el Auditorio Maestro Padilla, Almería" width="2048" height="1367" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMP_BobbyWhatson.webp" alt="Concierto de Bobby Whatson y Clasijazz BigBand en el Auditorio Maestro Padilla, Almería" width="2048" height="1367" />
 											</div>
 										</a>
 										<header><h3>Clasijazz Big Band con Bobby Whatson</h3></header>
@@ -143,7 +146,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AMP_DaahoudSalim.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AMP_DaahoudSalim.webp" alt="Concierto de Clasijazz Big Band con Daahoud Salim en el Auditorio Maestro Padilla, Almería" width="1200" height="840" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMP_DaahoudSalim.webp" alt="Concierto de Clasijazz Big Band con Daahoud Salim en el Auditorio Maestro Padilla, Almería" width="1200" height="840" />
 											</div>
 										</a>
 										<header><h3>Clasijazz Big Band con Daahoud Salim</h3></header>
@@ -153,7 +156,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AMP_GrupoAlmenara.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AMP_GrupoAlmenara.webp" alt="Concierto de Grupo Almenara en el Auditorio Maestro Padilla, Almería" width="1080" height="748" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMP_GrupoAlmenara.webp" alt="Concierto de Grupo Almenara en el Auditorio Maestro Padilla, Almería" width="1080" height="748" />
 											</div>
 										</a>
 										<header><h3>Grupo Almenara</h3></header>
@@ -163,7 +166,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AMP_LaTraviart2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AMP_LaTraviart2.webp" alt="Ópera La Traviata en el Auditorio Maestro Padilla, Almería" width="1200" height="801" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMP_LaTraviart2.webp" alt="Ópera La Traviata en el Auditorio Maestro Padilla, Almería" width="1200" height="801" />
 											</div>
 										</a>
 										<header><h3>Ópera La Traviata</h3></header>
@@ -173,7 +176,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AntonioDeQuero.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AntonioDeQuero.webp" alt="Jornada flamenca Almería: Un viaje por el baile en la Escuela Municipal de Música y Arte, Almería" width="1600" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AntonioDeQuero.webp" alt="Jornada flamenca Almería: Un viaje por el baile en la Escuela Municipal de Música y Arte, Almería" width="1600" height="2400" />
 											</div>
 										</a>
 										<header><h3>Almería: Un viaje por el baile</h3></header>
@@ -183,7 +186,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Ida Nielsen.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Ida Nielsen.webp" alt="Concierto de Ida Nielsen en ClasiJazz, Almería" width="650" height="455" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Ida Nielsen.webp" alt="Concierto de Ida Nielsen en ClasiJazz, Almería" width="650" height="455" />
 											</div>
 										</a>
 										<header><h3>Ida Nielsen</h3></header>
@@ -193,7 +196,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/En pié de danza 5.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/En pié de danza 5.webp" alt="Actuación de baile flamenco En pies de danza en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1848" height="1580" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/En pié de danza 5.webp" alt="Actuación de baile flamenco En pies de danza en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1848" height="1580" />
 											</div>
 										</a>
 										<header><h3>En pies de danza</h3></header>
@@ -203,7 +206,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Fafi Molina y José Carlos Llinares.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Fafi Molina y José Carlos Llinares.webp" alt="Actuación de Fafi Molina y José Carlos Llinares en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1602" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Fafi Molina y José Carlos Llinares.webp" alt="Actuación de Fafi Molina y José Carlos Llinares en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1602" />
 											</div>
 										</a>
 										<header><h3>Fafi Molina y José Carlos Llinares</h3></header>
@@ -213,7 +216,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Fran Calvo bailaor.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Fran Calvo bailaor.webp" alt="Actuación del bailaor Fran Calvo en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Fran Calvo bailaor.webp" alt="Actuación del bailaor Fran Calvo en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
 											</div>
 										</a>
 										<header><h3>Fran Calvo bailaor</h3></header>
@@ -223,7 +226,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/JenniferRuiz.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/JenniferRuiz.webp" alt="Actuación de Jennifer Ruiz en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1205" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/JenniferRuiz.webp" alt="Actuación de Jennifer Ruiz en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1205" height="2400" />
 											</div>
 										</a>
 										<header><h3>Jennifer Ruizz</h3></header>
@@ -233,7 +236,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/La Causa Swing ed.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/La Causa Swing ed.webp" alt="Concierto de La Causa Swing en la terraza de A.s.c. La Guajira, Almería" width="2400" height="1603" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/La Causa Swing ed.webp" alt="Concierto de La Causa Swing en la terraza de A.s.c. La Guajira, Almería" width="2400" height="1603" />
 											</div>
 										</a>
 										<header><h3>La Causa Swing</h3></header>
@@ -243,7 +246,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Macarena Mulero bailaora 2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Macarena Mulero bailaora 2.webp" alt="Actuación de la bailaora Macarena Mulero en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1485" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Macarena Mulero bailaora 2.webp" alt="Actuación de la bailaora Macarena Mulero en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1485" height="2400" />
 											</div>
 										</a>
 										<header><h3>Macarena Mulero</h3></header>
@@ -253,7 +256,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Miriam Suarez y Miguel Canale.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Miriam Suarez y Miguel Canale.webp" alt="Concierto de Miriam Suárez y Miguel Canale en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1603" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Miriam Suarez y Miguel Canale.webp" alt="Concierto de Miriam Suárez y Miguel Canale en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1603" />
 											</div>
 										</a>
 										<header><h3>Miriam Suarez y Miguel Canale</h3></header>
@@ -263,7 +266,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/TA_DevonLamaar.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/TA_DevonLamaar.webp" alt="Concierto de Devon Lamaar, Festival Almerijazz, en el Teatro Apolo, Almería" width="1400" height="933" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/TA_DevonLamaar.webp" alt="Concierto de Devon Lamaar, Festival Almerijazz, en el Teatro Apolo, Almería" width="1400" height="933" />
 											</div>
 										</a>
 										<header><h3>Devon Lamaar - Festival Almerijazz</h3></header>
@@ -273,7 +276,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/TA_PozoDeLosDeseos.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/TA_PozoDeLosDeseos.webp" alt="El pozo de los deseos en el Teatro Apolo, Almería" width="2048" height="1367" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/TA_PozoDeLosDeseos.webp" alt="El pozo de los deseos en el Teatro Apolo, Almería" width="2048" height="1367" />
 											</div>
 										</a>
 										<header><h3>El pozo de los deseos</h3></header>
@@ -283,7 +286,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/TA_Trasladanza.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/TA_Trasladanza.webp" alt="Ciclo Trasladanza en el Teatro Apolo, Almería" width="1080" height="719" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/TA_Trasladanza.webp" alt="Ciclo Trasladanza en el Teatro Apolo, Almería" width="1080" height="719" />
 											</div>
 										</a>
 										<header><h3>Ciclo Trasladanza</h3></header>
@@ -293,7 +296,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Victoria Macías bailaora 4.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Victoria Macías bailaora 4.webp" alt="Actuación de la bailaora Victoria Macías en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Victoria Macías bailaora 4.webp" alt="Actuación de la bailaora Victoria Macías en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
 											</div>
 										</a>
 										<header><h3>Victoria Macías</h3></header>
@@ -303,7 +306,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Camaleones-rock-Adra.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Camaleones-rock-Adra.webp" alt="Concierto de Camaleones Rock en el Festival de Food Trucks de Adra" width="2400" height="1198" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Camaleones-rock-Adra.webp" alt="Concierto de Camaleones Rock en el Festival de Food Trucks de Adra" width="2400" height="1198" />
 											</div>
 										</a>
 										<header><h3>Camaleones Rock</h3></header>
@@ -313,7 +316,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO_2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO_2.webp" alt="Festival Flamenco 2026 en el Auditorio Maestro Padilla, Almería" width="2048" height="1364" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/AMP_12SEPT2026_FESTIVAL_FLAMENCO_2.webp" alt="Festival Flamenco 2026 en el Auditorio Maestro Padilla, Almería" width="2048" height="1364" />
 											</div>
 										</a>
 										<header><h3>Festival Flamenco 2026</h3></header>
@@ -503,7 +506,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Carmen Ureña bailaora 1.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Carmen Ureña bailaora 1.webp" alt="Actuación de Carmen Ureña Trío en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1302" height="1950" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Carmen Ureña bailaora 1.webp" alt="Actuación de Carmen Ureña Trío en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1302" height="1950" />
 											</div>
 										</a>
 										<header><h3>Carmen Ureña trío</h3></header>
@@ -513,7 +516,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Victoria Macías bailaora 4.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Victoria Macías bailaora 4.webp" alt="Actuación de la bailaora Victoria Macías en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Victoria Macías bailaora 4.webp" alt="Actuación de la bailaora Victoria Macías en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
 											</div>
 										</a>
 										<header><h3>Victoria Macías</h3></header>
@@ -523,7 +526,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Macarena Mulero bailaora 2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Macarena Mulero bailaora 2.webp" alt="Actuación de la bailaora Macarena Mulero en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1485" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Macarena Mulero bailaora 2.webp" alt="Actuación de la bailaora Macarena Mulero en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1485" height="2400" />
 											</div>
 										</a>
 										<header><h3>Macarena Mulero</h3></header>
@@ -533,7 +536,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Fran Calvo bailaor.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Fran Calvo bailaor.webp" alt="Actuación del bailaor Fran Calvo en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Fran Calvo bailaor.webp" alt="Actuación del bailaor Fran Calvo en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1602" height="2400" />
 											</div>
 										</a>
 										<header><h3>Fran Calvo bailaor</h3></header>
@@ -543,7 +546,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Bajista de Miriam Suarez.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Bajista de Miriam Suarez.webp" alt="Bajista de Miriam Suárez en concierto en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1603" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Bajista de Miriam Suarez.webp" alt="Bajista de Miriam Suárez en concierto en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1603" height="2400" />
 											</div>
 										</a>
 										<header><h3>Bajista de Miriam Suarez</h3></header>
@@ -553,7 +556,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/En pié de danza 5.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/En pié de danza 5.webp" alt="Actuación de baile flamenco En pies de danza en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1848" height="1580" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/En pié de danza 5.webp" alt="Actuación de baile flamenco En pies de danza en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="1848" height="1580" />
 											</div>
 										</a>
 										<header><h3>En pies de danza</h3></header>
@@ -563,7 +566,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Miriam Suarez y Miguel Canale.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Miriam Suarez y Miguel Canale.webp" alt="Concierto de Miriam Suárez y Miguel Canale en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1603" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Miriam Suarez y Miguel Canale.webp" alt="Concierto de Miriam Suárez y Miguel Canale en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1603" />
 											</div>
 										</a>
 										<header><h3>Miriam Suarez y Miguel Canale</h3></header>
@@ -573,7 +576,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Clarinete de Miriam Suárez.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Clarinete de Miriam Suárez.webp" alt="Clarinetista de Miriam Suárez en concierto en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1434" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Clarinete de Miriam Suárez.webp" alt="Clarinetista de Miriam Suárez en concierto en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1434" />
 											</div>
 										</a>
 										<header><h3>Clarinete de Miriam Suarez</h3></header>
@@ -583,7 +586,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/Fafi Molina y José Carlos Llinares.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/Fafi Molina y José Carlos Llinares.webp" alt="Actuación de Fafi Molina y José Carlos Llinares en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1602" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/Fafi Molina y José Carlos Llinares.webp" alt="Actuación de Fafi Molina y José Carlos Llinares en la Asociación Sociocultural A.s.c. La Guajira, Almería" width="2400" height="1602" />
 											</div>
 										</a>
 										<header><h3>Fafi Molina y José Carlos Llinares</h3></header>
@@ -593,7 +596,7 @@
 									<article class="item">
 										<a href="images/fotos_eventos/La Causa Swing ed.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_eventos/La Causa Swing ed.webp" alt="Concierto de La Causa Swing en la terraza de A.s.c. La Guajira, Almería" width="2400" height="1603" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_eventos/La Causa Swing ed.webp" alt="Concierto de La Causa Swing en la terraza de A.s.c. La Guajira, Almería" width="2400" height="1603" />
 											</div>
 										</a>
 										<header><h3>La Causa Swing</h3></header>
@@ -603,7 +606,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Raices_en_area1.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Raices_en_area1.webp" alt="Fotografía artística Raíces en Arena en el Cerro de San Cristóbal, Almería" width="807" height="541" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Raices_en_area1.webp" alt="Fotografía artística Raíces en Arena en el Cerro de San Cristóbal, Almería" width="807" height="541" />
 											</div>
 										</a>
 										<header><h3>Raices en Arena</h3></header>
@@ -613,7 +616,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Issabella - portfolio 1.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Issabella - portfolio 1.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Issabella - portfolio 1.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
 											</div>
 										</a>
 										<header><h3>Sesión con Issabella Siret</h3></header>
@@ -623,7 +626,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Issabella - portfolio 2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Issabella - portfolio 2.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Issabella - portfolio 2.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
 											</div>
 										</a>
 										<header><h3>Sesión con Issabella Siret</h3></header>
@@ -633,7 +636,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Issabella - portfolio 3.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Issabella - portfolio 3.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Issabella - portfolio 3.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
 											</div>
 										</a>
 										<header><h3>Sesión con Issabella Siret</h3></header>
@@ -643,7 +646,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Issabella - portfolio 4.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Issabella - portfolio 4.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Issabella - portfolio 4.webp" alt="Sesión de fotografía con Issabella en la EMMA (Escuela Municipal de Música y Arte), Almería" width="1600" height="2400" />
 											</div>
 										</a>
 										<header><h3>Sesión con Issabella Siret</h3></header>
@@ -653,7 +656,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Lumenes 1.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Lumenes 1.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Lumenes 1.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
 											</div>
 										</a>
 										<header><h3>Lumenes - Margot</h3></header>
@@ -663,7 +666,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Lumenes 2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Lumenes 2.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Lumenes 2.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
 											</div>
 										</a>
 										<header><h3>Lumenes - Viki</h3></header>
@@ -673,7 +676,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Lumenes 3.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Lumenes 3.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Lumenes 3.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
 											</div>
 										</a>
 										<header><h3>Lumenes - Andrea</h3></header>
@@ -683,7 +686,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Lumenes 4.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Lumenes 4.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Lumenes 4.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
 											</div>
 										</a>
 										<header><h3>Lumenes - Minerva</h3></header>
@@ -693,7 +696,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Lumenes 5.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Lumenes 5.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Lumenes 5.webp" alt="Sesión de fotografía Lúmenes con Lumen Escuela Audiovisual en Güéjar Sierra, Granada" width="2400" height="1600" />
 											</div>
 										</a>
 										<header><h3>Lumenes - Manuel</h3></header>
@@ -703,7 +706,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Cabo de Gata 3-24.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Cabo de Gata 3-24.webp" alt="Fotografía de paisaje en Cabo de Gata, Almería" width="2400" height="1350" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Cabo de Gata 3-24.webp" alt="Fotografía de paisaje en Cabo de Gata, Almería" width="2400" height="1350" />
 											</div>
 										</a>
 										<header><h3>Cabo de Gata</h3></header>
@@ -713,7 +716,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Cabo de Gata 3-29.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Cabo de Gata 3-29.webp" alt="Fotografía de paisaje en Cabo de Gata, Almería" width="2400" height="1350" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Cabo de Gata 3-29.webp" alt="Fotografía de paisaje en Cabo de Gata, Almería" width="2400" height="1350" />
 											</div>
 										</a>
 										<header><h3>Cabo de Gata</h3></header>
@@ -723,7 +726,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/alex_autoretrato.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/alex_autoretrato.webp" alt="Autoretrato" width="2400" height="1600" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/alex_autoretrato.webp" alt="Autoretrato" width="2400" height="1600" />
 											</div>
 										</a>
 										<header><h3>Autoretrato</h3></header>
@@ -733,7 +736,7 @@
 									<article class="item">
 										<a href="images/fotos_fotos/Raices_en_area2.webp" class="image fit lightbox-trigger">
 											<div class="image-container">
-												<img loading="lazy" decoding="async" src="images/fotos_fotos/Raices_en_area2.webp" alt="Fotografía artística Raíces en Arena en el Cerro de San Cristóbal, Almería" width="692" height="462" />
+												<img loading="lazy" decoding="async" src="images/thumbs/fotos_fotos/Raices_en_area2.webp" alt="Fotografía artística Raíces en Arena en el Cerro de San Cristóbal, Almería" width="692" height="462" />
 											</div>
 										</a>
 										<header><h3>Raices en Arena</h3></header>
@@ -944,10 +947,17 @@
 				</div>
 					
 
+				<!-- Enlaces del pie -->
+					<nav class="footer-nav" aria-label="Servicios">
+						<a href="sonido-eventos-almeria.html">Sonido y eventos en Almería</a>
+						<a href="video-streaming-dron-almeria.html">Vídeo, streaming y dron en Almería</a>
+						<a href="portfolio-page.html">Portfolio</a>
+					</nav>
+
 				<!-- Copyright -->
 					<ul class="copyright">
 						<li>&copy; Alex Catto. Todos los derechos están reservados.</li>
-						<li>Esta web no hace uso de cookies.</li>
+						<li><button type="button" class="link-button" data-cookie-settings>Preferencias de cookies</button></li>
 					</ul>
 
 			</div>
