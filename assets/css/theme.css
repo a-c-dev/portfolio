@@ -1198,3 +1198,32 @@ body #logo {
   body #logo { justify-content: end; }
   #logo .logo-mark { height: 40px; }
 }
+
+/* =====================================================================
+   Botones sin aspecto de "botón": la regla antigua de custom.css pone un
+   borde naranja y un fondo azul al pasar el ratón a TODOS los <button>.
+   Aquí se anula para el botón del menú, el enlace de cookies del pie y
+   los controles del visor de fotos.
+   ===================================================================== */
+body #headerToggle .toggle,
+body #headerToggle .toggle:hover,
+body #headerToggle .toggle:active,
+body #headerToggle .toggle:focus,
+body .link-button,
+body .link-button:hover,
+body .link-button:active,
+body .lightbox-close,
+body .lightbox-close:hover,
+body .lightbox-prev,
+body .lightbox-prev:hover,
+body .lightbox-next,
+body .lightbox-next:hover {
+  border: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+body .link-button { color: inherit !important; }
+body .link-button:hover { color: var(--amber) !important; }
+body .lightbox-close, body .lightbox-prev, body .lightbox-next { color: #fff !important; }
+body .lightbox-close:hover, body .lightbox-prev:hover, body .lightbox-next:hover { color: var(--amber) !important; }
