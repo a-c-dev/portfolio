@@ -46,7 +46,7 @@
 	function close() {
 		lightbox.classList.remove('is-open');
 		lightbox.setAttribute('aria-hidden', 'true');
-		lightboxImg.src = '';
+		lightboxImg.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 	}
 
 	document.addEventListener('click', function (event) {
