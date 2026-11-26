@@ -1175,3 +1175,6 @@ body #nav .has-sub > a > span::after {
 }
 .how-i-work h3 { margin: 0 0 .5rem; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
 .how-i-work p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 1rem; }
+
+/* Títulos de las tarjetas "Qué hago…" / "Qué puedo hacer…" en naranja */
+.offer-card h3 { color: var(--amber); }
