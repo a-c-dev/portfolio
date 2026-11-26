@@ -1,4 +1,38 @@
+# alexcatto.com
+# Todos los buscadores y los asistentes de IA con búsqueda pueden rastrear la web.
+# Las reglas por rastreador de abajo no bloquean nada: solo dejan por escrito que
+# estos están permitidos (útil si algún día se añaden restricciones generales).
+
 User-agent: *
+Allow: /
+
+# Buscadores
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Asistentes de IA con búsqueda en la web
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 Sitemap: https://alexcatto.com/sitemap.xml
