@@ -1163,3 +1163,15 @@ body #nav .has-sub > a > span::after {
     background: linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .46) 40%, rgba(0, 0, 0, .92) 100%);
   }
 }
+
+/* Bloque "Cómo trabajo" (autónomo, equipo en proyectos grandes) */
+.how-i-work {
+  margin: 1.8rem 0 0;
+  padding: 1.2rem 1.4rem 1.3rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius);
+}
+.how-i-work h3 { margin: 0 0 .5rem; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
+.how-i-work p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 1rem; }
