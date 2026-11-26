@@ -1,0 +1,29 @@
+#!/bin/sh
+# pre-push: tras subir a main, espera a que GitHub Pages publique y avisa a IndexNow.
+#
+# Se ejecuta con CUALQUIER "git push" (desde la terminal, VS Code o Claude).
+# No bloquea el push ni cambia su resultado: lanza un proceso en segundo plano que
+# solo avisa si la web llega a servir la versión nueva (si el push falla, no avisa).
+# El registro queda en tools/.indexnow.log
+#
+# Instalación (una vez por copia del repositorio):  node tools/install-hooks.js
+# Desactivar un push concreto:                       SKIP_INDEXNOW=1 git push
+
+[ "$SKIP_INDEXNOW" = "1" ] && exit 0
+command -v node >/dev/null 2>&1 || exit 0
+
+ROOT="$(git rev-parse --show-toplevel)"
+ZERO="0000000000000000000000000000000000000000"
+
+# git envía una línea por rama: <ref_local> <sha_local> <ref_remota> <sha_remoto>
+while read local_ref local_sha remote_ref remote_sha; do
+  [ "$remote_ref" = "refs/heads/main" ] || continue
+  [ "$local_sha" = "$ZERO" ] && continue   # borrado de rama: nada que avisar
+  (
+    cd "$ROOT" || exit 0
+    nohup node tools/indexnow.js --after-push "$remote_sha" "$local_sha" --wait \
+      </dev/null >>tools/.indexnow.log 2>&1 &
+  )
+done
+
+exit 0
