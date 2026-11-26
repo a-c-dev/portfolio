@@ -1178,3 +1178,23 @@ body #nav .has-sub > a > span::after {
 
 /* Títulos de las tarjetas "Qué hago…" / "Qué puedo hacer…" en naranja */
 .offer-card h3 { color: var(--amber); }
+
+/* =====================================================================
+   Cabecera: emblema del logotipo junto al nombre
+   ===================================================================== */
+body #logo {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: .75rem;
+  align-items: center;
+  text-align: left;
+}
+#logo a.logo-link { display: contents; }
+#logo .logo-mark { grid-column: 1; grid-row: 1 / span 2; width: auto; height: 44px; display: block; }
+#logo .logo-name { grid-column: 2; grid-row: 1; align-self: end; }
+#logo p { grid-column: 2; grid-row: 2; align-self: start; }
+#logo a.logo-link:focus-visible .logo-name { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+@media screen and (max-width: 960px) {
+  body #logo { justify-content: end; }
+  #logo .logo-mark { height: 40px; }
+}
