@@ -1175,13 +1175,3 @@ body #nav .has-sub > a > span::after {
 }
 .how-i-work h3 { margin: 0 0 .5rem; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
 .how-i-work p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 1rem; }
-
-/* Lista "Software audiovisual" en Sobre mí */
-#about .skills { margin: 1.4rem 0 0; }
-#about .skills-title { margin: 0 0 .8rem; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
-@media screen and (min-width: 981px) {
-  #about > .container > .faders-wrap { grid-row: 1 / span 3; }
-  #about > .container > .skills { grid-column: 2; grid-row: 3; align-self: start; }
-  #about > .container > .row { grid-row: 4; }
-}
-@media screen and (max-width: 980px) { #about .skills { margin-bottom: 2rem; } }
